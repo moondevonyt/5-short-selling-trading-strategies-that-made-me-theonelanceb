@@ -6,3 +6,4 @@ data_cache/
 *.csv
 *.html
 !dashboard/index.html
+!dashboard/template.html

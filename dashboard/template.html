@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Short Setups Tested</title>
+<meta name="description" content="Moon Dev's edge finder: 3 short selling setups from TheOneLanceB, tested on real data with every cost in.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#06080c;color:#e9eef5;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;font-size:15px;line-height:1.45;overflow-x:hidden}
+body{background:radial-gradient(1200px 600px at 75% -10%,rgba(255,201,74,.07),transparent 60%),radial-gradient(900px 500px at 0% 0%,rgba(34,224,138,.06),transparent 60%),#06080c}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+.wrap{max-width:1880px;margin:0 auto;padding:0 28px}
+a{color:#ffc94a;text-decoration:none}
+.g{color:#22e08a}.r{color:#ff4d5e}.y{color:#ffc94a}.m{color:#8a96a6}.b{color:#6fb3ff}
+.top{display:flex;align-items:center;gap:18px;padding:14px 0 10px;border-bottom:1px solid #18202b;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:.08em;font-size:15px;display:flex;align-items:center;gap:10px}
+.dot{width:10px;height:10px;border-radius:50%;background:#22e08a;box-shadow:0 0 12px #22e08a;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.brand span{color:#ffc94a}
+.vid{color:#aab4c2;font-size:14px}
+.vid b{color:#e9eef5}
+.top .right{margin-left:auto;font-size:13px;color:#8a96a6}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:26px;padding:22px 0 14px;align-items:stretch}
+.kicker{font-size:13px;letter-spacing:.14em;color:#8a96a6;font-weight:700;text-transform:uppercase}
+.h1{font-size:clamp(34px,3.6vw,64px);font-weight:900;line-height:1;margin:10px 0 2px;letter-spacing:-.02em}
+.h1 .y{text-shadow:0 0 30px rgba(255,201,74,.35)}
+.giant{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:clamp(80px,9.6vw,184px);line-height:.95;color:#22e08a;text-shadow:0 0 50px rgba(34,224,138,.35);letter-spacing:-.04em;margin-top:10px}
+.giant-sub{font-size:clamp(15px,1.15vw,20px);color:#cfd7e2;max-width:640px}
+.giant-sub b{color:#fff}
+.vsrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.vs{background:#0d1219;border:1px solid #1d2733;border-radius:10px;padding:10px 12px;min-width:0}
+.vs .l{font-size:10.5px;min-height:26px;letter-spacing:.1em;color:#8a96a6;text-transform:uppercase;font-weight:700}
+.vs .v{font-family:"JetBrains Mono",monospace;font-size:24px;font-weight:800}
+.vs .s{font-size:12px;color:#8a96a6}
+.cav{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:#ffd98a;background:rgba(255,201,74,.07);border:1px solid rgba(255,201,74,.25);border-radius:8px;padding:7px 10px;margin-top:10px}
+.cav:before{content:"CAVEAT";font-size:10px;font-weight:900;letter-spacing:.1em;color:#06080c;background:#ffc94a;border-radius:4px;padding:2px 5px;margin-top:1px;flex:none}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:linear-gradient(180deg,#0e141c,#0a0e14);border:1px solid #1d2733;border-radius:14px;padding:16px;cursor:pointer;transition:transform .2s,border-color .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);border-color:#2f3d4f}
+.card.pass{border-color:rgba(34,224,138,.55);box-shadow:0 0 40px rgba(34,224,138,.10) inset}
+.card.bust{border-color:rgba(255,77,94,.45)}
+.card.np{border-color:rgba(255,201,74,.45)}
+.badge{display:inline-block;font-weight:900;font-size:12px;letter-spacing:.1em;padding:4px 9px;border-radius:6px}
+.badge.pass{background:#22e08a;color:#03140b}.badge.bust{background:#ff4d5e;color:#1a0306}.badge.np{background:#ffc94a;color:#1a1203}.badge.nt{background:#2a3442;color:#c9d2de}.badge.ver{background:#22e08a;color:#03140b}.badge.bvf{background:#6fb3ff;color:#031020}
+.card h3{font-size:18px;font-weight:800;margin:10px 0 2px}
+.card .claim{font-size:12.5px;color:#9aa6b6;min-height:36px}
+.card .big{font-family:"JetBrains Mono",monospace;font-size:clamp(34px,2.9vw,52px);font-weight:800;line-height:1.05;margin-top:8px}
+.card .bigl{font-size:12px;color:#8a96a6}
+.card .is{font-size:12.5px;color:#aab4c2;margin-top:4px}
+.checks{list-style:none;margin-top:10px;border-top:1px solid #1a222d;padding-top:8px}
+.checks li{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:3px 0;border-bottom:1px dashed #151c25}
+.checks li .k{color:#aab4c2}
+.checks li .v{font-family:"JetBrains Mono",monospace;font-weight:600;white-space:nowrap}
+.ok .k:before{content:"\2713";color:#22e08a;font-weight:900;margin-right:8px}
+.no .k:before{content:"\2717";color:#ff4d5e;font-weight:900;margin-right:8px}
+.checks li.extra{border-top:1px solid #253041;margin-top:3px}
+.passbar{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:#0b1016;border:1px solid #1d2733;border-radius:12px;padding:12px 18px;margin-bottom:18px}
+.passbar .t{font-weight:900;letter-spacing:.12em;color:#ffc94a;font-size:14px;white-space:nowrap}
+.passbar .rules{display:flex;flex-wrap:wrap;gap:8px}
+.rule{font-size:13px;background:#111821;border:1px solid #223042;border-radius:20px;padding:4px 11px;color:#d7dee8}
+.rule b{color:#ffc94a}
+/* sections */
+.sec{margin:26px 0}
+.sech{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.sech h2{font-size:clamp(22px,2vw,32px);font-weight:900;letter-spacing:-.01em}
+.sech .sub{color:#8a96a6;font-size:14px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.g64{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px}
+.panel{background:#0b1016;border:1px solid #1a2330;border-radius:14px;padding:16px;min-width:0}
+.panel h4{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#aab4c2;font-weight:800;margin-bottom:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.panel h4 .pill{font-size:11px;letter-spacing:.06em}
+.note{font-size:12.5px;color:#8a96a6;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px;align-items:center}
+.chips .lab{font-size:11px;color:#8a96a6;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-right:2px;min-width:54px}
+.chip{font:600 12.5px "JetBrains Mono",monospace;background:#111821;border:1px solid #243244;color:#cfd7e2;border-radius:7px;padding:4px 9px;cursor:pointer;user-select:none}
+.chip:hover{border-color:#3c5068}
+.chip.on{background:#ffc94a;color:#130d01;border-color:#ffc94a}
+.chip.off{opacity:.28;cursor:not-allowed}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#aab4c2;margin:2px 0 6px}
+.legend i{display:inline-block;width:12px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.legend i.sq{height:10px;width:10px;border-radius:2px}
+svg text{font-family:"JetBrains Mono",monospace}
+.tip{position:fixed;pointer-events:none;z-index:50;background:#0f1620;border:1px solid #2c3a4c;border-radius:8px;padding:8px 10px;font:12.5px "JetBrains Mono",monospace;color:#e9eef5;box-shadow:0 8px 30px rgba(0,0,0,.5);opacity:0;transition:opacity .1s;max-width:320px}
+/* heatmap */
+.hm{overflow-x:auto}
+.hmg{display:grid;gap:3px;min-width:420px}
+.hmc{border-radius:6px;padding:7px 4px;text-align:center;font:700 13px "JetBrains Mono",monospace;cursor:pointer;border:2px solid transparent;transition:transform .12s}
+.hmc:hover{transform:scale(1.05)}
+.hmc small{display:block;font-weight:400;font-size:10.5px;opacity:.8}
+.hmc.sel{border-color:#fff}
+.hmc.pick{box-shadow:0 0 0 2px #ffc94a inset}
+.hmc.na{background:#0e131a;color:#3a4656;cursor:default}
+.hmh{font:600 11.5px "JetBrains Mono",monospace;color:#8a96a6;display:flex;align-items:center;justify-content:center;text-align:center}
+.det{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.det .box{background:#0e141c;border:1px solid #1d2733;border-radius:10px;padding:10px}
+.det .box .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a96a6;font-weight:800}
+.det .box .v{font:800 26px "JetBrains Mono",monospace}
+.det .box .s{font:12px "JetBrains Mono",monospace;color:#aab4c2}
+/* slider */
+input[type=range]{width:100%;accent-color:#ffc94a;height:26px}
+.readout{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0}
+.readout .box{flex:1;min-width:120px;background:#0e141c;border:1px solid #1d2733;border-radius:10px;padding:8px 10px}
+.readout .l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a96a6;font-weight:800}
+.readout .v{font:800 22px "JetBrains Mono",monospace;white-space:nowrap}
+.readout .v small{font-size:12px;color:#aab4c2;font-weight:600}
+/* tables */
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a96a6;text-align:right;padding:6px 6px;border-bottom:1px solid #223042;font-weight:800}
+table.t th:first-child,table.t td:first-child{text-align:left}
+table.t td{padding:6px 6px;border-bottom:1px solid #141b24;text-align:right;font-family:"JetBrains Mono",monospace;white-space:nowrap}
+table.t td:first-child{font-family:Inter,sans-serif;white-space:normal}
+table.t tr:hover td{background:#0f1620}
+.tw{overflow-x:auto}
+.tag{display:inline-block;font:800 10px Inter,sans-serif;letter-spacing:.08em;padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.tag.y{background:rgba(255,201,74,.15);color:#ffc94a}.tag.r{background:rgba(255,77,94,.15);color:#ff7a87}.tag.g{background:rgba(34,224,138,.15);color:#22e08a}.tag.m{background:#1b2430;color:#9aa6b6}
+/* tape */
+.tape{height:388px;overflow:hidden;position:relative;border-radius:10px;background:#080b10;border:1px solid #161e29}
+.tape:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(transparent,#080b10)}
+.trow{display:grid;grid-template-columns:70px 92px 1fr 80px;gap:8px;padding:6px 12px;border-bottom:1px solid #121922;font:13px "JetBrains Mono",monospace;align-items:center;animation:slidein .35s ease}
+.trow .rs{font-size:11px;color:#8a96a6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow .rv{text-align:right;font-weight:800}
+.trow.flash.w{background:rgba(34,224,138,.12)}.trow.flash.l{background:rgba(255,77,94,.10)}
+@keyframes slidein{from{transform:translateY(-100%);opacity:0}to{transform:none;opacity:1}}
+.tstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:8px}
+.tstats .box{background:#0e141c;border:1px solid #1d2733;border-radius:8px;padding:6px 8px}
+.tstats .l{font-size:10px;color:#8a96a6;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.tstats .v{font:800 18px "JetBrains Mono",monospace}
+/* claims */
+.claims{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+.clist{display:flex;flex-direction:column;gap:6px;max-height:560px;overflow-y:auto;padding-right:4px}
+.citem{display:grid;grid-template-columns:62px 1fr auto;gap:10px;align-items:center;background:#0e141c;border:1px solid #1a2330;border-radius:9px;padding:9px 11px;cursor:pointer;font-size:14px}
+.citem:hover{border-color:#34465c}
+.citem.sel{border-color:#ffc94a;background:#141b13}
+.citem .ts{font:12px "JetBrains Mono",monospace;color:#8a96a6}
+.cdet{background:linear-gradient(180deg,#0f1620,#0a0e14);border:1px solid #223042;border-radius:14px;padding:22px;position:sticky;top:12px;align-self:start}
+.cdet .q{font-size:clamp(18px,1.5vw,24px);font-weight:800;line-height:1.25;margin:12px 0 4px}
+.cdet .who{color:#8a96a6;font-size:13px}
+.cdet .proof{font:800 clamp(40px,4vw,68px) "JetBrains Mono",monospace;margin:14px 0 2px;line-height:1}
+.cdet .pl{color:#aab4c2;font-size:14px}
+.cdet .more{margin-top:12px;font-size:14px;color:#cfd7e2}
+.cdet .more li{margin:4px 0 4px 18px}
+/* takeaways */
+.take{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.tk{background:#0e141c;border:1px solid #1d2733;border-left:4px solid #22e08a;border-radius:10px;padding:14px}
+.tk .n{font:800 28px "JetBrains Mono",monospace;color:#22e08a}
+.tk p{font-size:14px;color:#dbe2eb;margin-top:6px}
+/* package headers */
+.pkg{border-top:1px solid #18202b;padding-top:22px}
+.pkgh{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.pkgh h2{font-size:clamp(24px,2.3vw,38px);font-weight:900}
+.pkgh .q{color:#9aa6b6;font-size:14px;max-width:900px}
+/* code */
+.code{font-variant-ligatures:none;background:#05070a;border:1px solid #1a2330;border-radius:12px;padding:14px 0;height:620px;overflow:auto;font:14px/1.55 "JetBrains Mono",monospace}
+.code .ln{display:block;padding:0 16px;white-space:pre}
+.code .ln:before{content:attr(data-n);display:inline-block;width:34px;color:#334050;text-align:right;margin-right:14px}
+.kw{color:#ff7ab6}.st{color:#a5e38b}.cm{color:#6b7a8c;font-style:italic}.nu{color:#ffc94a}.fn{color:#6fb3ff}
+.cursor{display:inline-block;width:8px;height:16px;background:#22e08a;vertical-align:middle;animation:pulse 1s infinite}
+.btn{font:700 12px Inter,sans-serif;background:#141c26;border:1px solid #2a384a;color:#dbe2eb;border-radius:7px;padding:5px 10px;cursor:pointer}
+.btn:hover{border-color:#ffc94a}
+.foot{color:#7d8898;font-size:13px;padding:24px 0 40px;border-top:1px solid #18202b;margin-top:30px}
+.foot li{margin:3px 0 3px 18px}
+.chartbox{position:relative;width:100%}
+@media (max-width:1300px){.take{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1100px){.hero{grid-template-columns:1fr}.g64,.grid2,.grid3,.claims{grid-template-columns:1fr}.cdet{position:static}}
+@media (max-width:760px){table.t td:first-child{min-width:150px}table.t{font-size:12px}.wrap{padding:0 16px}.vsrow{grid-template-columns:1fr 1fr}.vs .v{font-size:21px}.cards{grid-template-columns:1fr}.take{grid-template-columns:1fr}.passbar{grid-template-columns:1fr}.top .right{margin-left:0}.tstats{grid-template-columns:repeat(2,minmax(0,1fr))}.det{grid-template-columns:1fr 1fr}.code{font-size:12px;height:480px}.trow{grid-template-columns:58px 84px 1fr 66px;font-size:12px;padding:6px 8px}.citem{grid-template-columns:52px 1fr;}.citem .badge{grid-column:2;justify-self:start}}
+</style>
+</head>
+<body>
+<div class="tip" id="tip"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="dot"></div>MOON DEV <span>EDGE FINDER</span></div>
+    <div class="vid">Testing <b id="vtitle"></b> by <b id="vchan"></b></div>
+    <div class="right"><a id="vlink" target="_blank" rel="noopener">Watch the video</a> · all credit to the creator · real data only</div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">3 short setups from the video · real data · every cost in</div>
+      <div class="h1"><span class="y">1 OF 3</span> PASSED</div>
+      <div class="giant" id="heroNum">+0.00%</div>
+      <div class="giant-sub" id="heroSub"></div>
+      <div class="vsrow" id="heroVs"></div>
+      <div class="cav" id="heroCav"></div>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <div class="passbar">
+    <div class="t">THE PASS BAR</div>
+    <div class="rules" id="rules"></div>
+  </div>
+
+  <section class="sec">
+    <div class="sech"><h2>The money lines, drawn live</h2><div class="sub">Equity of the picked version. Left of the gold line: in sample, where the knobs were picked. Right: out of sample, the only part that counts.</div></div>
+    <div class="grid3" id="eqs"></div>
+  </section>
+
+  <section class="sec">
+    <div class="g64">
+      <div class="panel">
+        <h4>Replay: real bars, real trades <span class="tabs" id="rpTabs"></span></h4>
+        <div class="chartbox" id="replay"></div>
+        <div class="note" id="rpNote"></div>
+      </div>
+      <div class="panel">
+        <h4>Trade tape <span class="tabs" id="tpTabs"></span></h4>
+        <div class="tstats" id="tpStats"></div>
+        <div class="tape" id="tape"></div>
+        <div class="note" id="tpNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sech"><h2>Fact check: what he said vs the data</h2><div class="sub">Click any claim. Every proof number comes from the backtests.</div></div>
+    <div class="chips" id="cfilter"></div>
+    <div class="claims">
+      <div class="clist" id="clist"></div>
+      <div class="cdet" id="cdet"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sech"><h2>Use these today</h2></div>
+    <div class="take" id="take"></div>
+  </section>
+
+  <section class="sec pkg" id="pkg3">
+    <div class="pkgh"><span class="badge pass">PASSES THE BAR</span><h2>Bouncy ball short</h2><div class="q" id="p3q"></div></div>
+    <div class="g64">
+      <div class="panel"><h4>Grid explorer: 5,472 real runs <span class="tabs" id="p3win"></span></h4><div id="p3ex"></div></div>
+      <div class="panel"><h4>Cost slider: where does it die?</h4><div id="p3cost"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="panel"><h4>Daily works. Intraday dies.</h4><div class="legend"><span><i class="sq" style="background:#ffc94a"></i>Bouncy ball, out of sample</span><span><i class="sq" style="background:#5f7ea3"></i>Chase the crash, out of sample</span></div><div class="chartbox" id="p3tf"></div><div class="cav" id="p3tfc"></div></div>
+      <div class="panel"><h4>By year, ball vs chase</h4><div class="legend"><span><i class="sq" style="background:#ffc94a"></i>Bouncy ball</span><span><i class="sq" style="background:#5f7ea3"></i>Chase the crash</span></div><div class="chartbox" id="p3yr"></div><div class="cav" id="p3yrc"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="panel"><h4>Which knob matters (daily, out of sample)</h4><div class="chips" id="p3kt"></div><div class="chartbox" id="p3knob"></div><div class="note" id="p3kn"></div></div>
+      <div class="panel"><h4>Squeeze guards (his violent rally risk)</h4><div class="tw" id="p3sq"></div><div class="cav" id="p3sqc"></div></div>
+    </div>
+  </section>
+
+  <section class="sec pkg" id="pkg1">
+    <div class="pkgh"><span class="badge np">NOT PROVEN</span><h2>Right side of the V</h2><div class="q" id="p1q"></div></div>
+    <div class="g64">
+      <div class="panel"><h4>Grid explorer: 672 real runs <span class="tabs" id="p1win"></span></h4><div id="p1ex"></div></div>
+      <div class="panel"><h4>The regime check it failed</h4><div id="p1reg"></div></div>
+    </div>
+    <div class="grid3" style="margin-top:16px">
+      <div class="panel"><h4>Entry: wait vs call the top</h4><div class="chips" id="p1et"></div><div class="legend"><span><i class="sq" style="background:#22e08a"></i>Lower high break (his rule)</span><span><i class="sq" style="background:#ffc94a"></i>Call the top</span><span><i class="sq" style="background:#ff4d5e"></i>10 EMA cross</span></div><div class="chartbox" id="p1entry"></div><div class="note">Out of sample, funded trades.</div></div>
+      <div class="panel"><h4>Exit is everything</h4><div class="chartbox" id="p1exit"></div><div class="note" id="p1exn"></div></div>
+      <div class="panel"><h4>Slippage slider</h4><div id="p1cost"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="panel"><h4>Filters on the best version</h4><div class="tw" id="p1flt"></div><div class="cav" id="p1fltc"></div></div>
+      <div class="panel"><h4>By year</h4><div class="chartbox" id="p1yr"></div><div class="cav" id="p1yrc"></div></div>
+    </div>
+  </section>
+
+  <section class="sec pkg" id="pkg2">
+    <div class="pkgh"><span class="badge bust">BUSTED</span><h2>IPO lockup expiry short</h2><div class="q" id="p2q"></div></div>
+    <div class="grid2">
+      <div class="panel"><h4>Day by day around lockup day 0 (1,278 events)</h4><div class="legend"><span><i class="sq" style="background:#22e08a"></i>Up day avg (vs IWM)</span><span><i class="sq" style="background:#ff4d5e"></i>Down day avg</span><span><i class="sq" style="background:#ffc94a"></i>Day 0</span></div><div class="chartbox" id="p2ev"></div><div class="cav" id="p2evc"></div></div>
+      <div class="panel"><h4>Window returns, the real test <span class="tabs" id="p2set"></span></h4><div class="tw" id="p2win"></div><div class="chartbox" id="p2vol" style="margin-top:10px"></div></div>
+    </div>
+    <div class="g64" style="margin-top:16px">
+      <div class="panel"><h4>Grid explorer: when to short, when to cover <span class="tabs" id="p2wt"></span></h4><div id="p2ex"></div></div>
+      <div class="panel"><h4>Cost and borrow sliders</h4><div id="p2cost"></div><div id="p2borrow" style="margin-top:14px"></div></div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="panel"><h4>By year: it worked, then it flipped</h4><div class="chartbox" id="p2yr"></div><div class="cav" id="p2yrc"></div></div>
+      <div class="panel"><h4>His filters, in sample vs out of sample</h4><div class="tw" id="p2flt" style="max-height:420px;overflow-y:auto"></div></div>
+    </div>
+    <div class="panel" style="margin-top:16px"><h4>The flip side (his SpaceX point): go long when day 0 gaps down and holds</h4><div class="tw" id="p2flip"></div><div class="cav" id="p2flipc"></div></div>
+  </section>
+
+  <section class="sec pkg" id="bot">
+    <div class="pkgh"><span class="badge np">DRY RUN · NOT PROVEN</span><h2>The bot: right side of the V on Hyperliquid</h2></div>
+    <div class="g64">
+      <div class="panel"><h4>alpha/1_right_side_v/bot.py <button class="btn" id="botAll">show all</button></h4><div class="code" id="code"></div></div>
+      <div class="panel" id="botInfo"></div>
+    </div>
+  </section>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+/* Moon Dev: every number below comes from the result.json of each package in alpha, baked in by build_dashboard.py. Nothing random. */
+const D = __MOON_DEV_DATA__;
+const P1 = D.p1, P2 = D.p2, P3 = D.p3;
+const C = {g:"#22e08a", r:"#ff4d5e", y:"#ffc94a", b:"#6fb3ff", s:"#5f7ea3", m:"#8a96a6", grid:"#18212c", ax:"#5d6a7b"};
+const $ = (s, el) => (el || document).querySelector(s);
+const NS = "http://www.w3.org/2000/svg";
+const sgn = v => v > 0 ? "+" : (v < 0 ? "−" : "");
+const pct = (v, d) => v == null ? "n/a" : sgn(v) + Math.abs(v).toFixed(d == null ? 2 : d) + "%";
+const num = (v, d) => v == null ? "n/a" : (v < 0 ? "−" : "") + Math.abs(v).toFixed(d == null ? 2 : d);
+const cls = v => v > 0 ? "g" : (v < 0 ? "r" : "m");
+const comma = n => n == null ? "n/a" : n.toLocaleString("en-US");
+const tip = $("#tip");
+function showTip(e, html){ tip.innerHTML = html; tip.style.opacity = 1; const w = tip.offsetWidth, h = tip.offsetHeight; let x = e.clientX + 14, y = e.clientY + 14; if (x + w > innerWidth - 8) x = e.clientX - w - 14; if (y + h > innerHeight - 8) y = e.clientY - h - 14; tip.style.left = x + "px"; tip.style.top = y + "px"; }
+function hideTip(){ tip.style.opacity = 0; }
+function el(tag, attrs, parent){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; }
+function h(html){ const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstChild; }
+const renderers = [];
+function onResize(fn){ renderers.push(fn); fn(); }
+let rT; addEventListener("resize", () => { clearTimeout(rT); rT = setTimeout(() => renderers.forEach(f => f()), 150); });
+function inView(node, fn){ const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting){ fn(); io.disconnect(); } }); }, {threshold: .25}); io.observe(node); }
+function niceTicks(lo, hi, n){ const span = hi - lo || 1; const step0 = span / n; const mag = Math.pow(10, Math.floor(Math.log10(step0))); const st = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= step0); const out = []; for (let v = Math.ceil(lo / st) * st; v <= hi + 1e-9; v += st) out.push(+v.toFixed(10)); return out; }
+function countUp(node, to, dec, prefixSign, suffix, ms){ const t0 = performance.now(); ms = ms || 1600; function f(t){ const k = Math.min(1, (t - t0) / ms); const e = 1 - Math.pow(1 - k, 3); const v = to * e; node.textContent = (prefixSign ? sgn(to) : (v < 0 ? "−" : "")) + Math.abs(v).toFixed(dec) + (suffix || ""); if (k < 1) requestAnimationFrame(f); } requestAnimationFrame(f); }
+
+/* Moon Dev: line chart with hover crosshair. x values are numbers (ms dates or plain). One y axis only. */
+function lineChart(box, cfg){
+  const W = box.clientWidth || 600, H = cfg.h || 220, m = {l: 52, r: 26, t: 12, b: 26};
+  box.innerHTML = ""; const svg = el("svg", {width: W, height: H, viewBox: `0 0 ${W} ${H}`}, box);
+  const all = cfg.series.flatMap(s => s.pts);
+  let xs = all.map(p => p[0]), ys = all.map(p => p[1]).concat(cfg.yExtra || []);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs); let y0 = Math.min(...ys), y1 = Math.max(...ys); const pad = (y1 - y0) * .08 || 1; y0 -= pad; y1 += pad;
+  const X = v => m.l + (v - x0) / (x1 - x0 || 1) * (W - m.l - m.r), Y = v => m.t + (1 - (v - y0) / (y1 - y0)) * (H - m.t - m.b);
+  if (cfg.split != null){ const sx = X(cfg.split); el("rect", {x: sx, y: m.t, width: W - m.r - sx, height: H - m.t - m.b, fill: "rgba(255,201,74,.045)"}, svg); el("line", {x1: sx, x2: sx, y1: m.t, y2: H - m.b, stroke: C.y, "stroke-width": 1.5, "stroke-dasharray": "4 4"}, svg); const t1 = el("text", {x: sx - 6, y: m.t + 12, fill: C.m, "font-size": 10.5, "text-anchor": "end"}, svg); t1.textContent = "IN SAMPLE"; const t2 = el("text", {x: sx + 6, y: m.t + 12, fill: C.y, "font-size": 10.5}, svg); t2.textContent = "OUT OF SAMPLE"; }
+  niceTicks(y0, y1, 4).forEach(v => { el("line", {x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: C.grid}, svg); const t = el("text", {x: m.l - 6, y: Y(v) + 4, fill: C.ax, "font-size": 11, "text-anchor": "end"}, svg); t.textContent = cfg.yFmt ? cfg.yFmt(v) : v; });
+  if (cfg.base != null && cfg.base > y0 && cfg.base < y1) el("line", {x1: m.l, x2: W - m.r, y1: Y(cfg.base), y2: Y(cfg.base), stroke: "#3a4656", "stroke-width": 1.2}, svg);
+  const xt = cfg.xTicks || niceTicks(x0, x1, 5);
+  let lastX = -1e9; xt.forEach(v => { if (v < x0 || v > x1 || X(v) - lastX < 26) return; lastX = X(v); const t = el("text", {x: X(v), y: H - 8, fill: C.ax, "font-size": 11, "text-anchor": "middle"}, svg); t.textContent = cfg.xFmt ? cfg.xFmt(v) : v; });
+  const paths = cfg.series.map(s => { const d = s.pts.map((p, i) => (i ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1)).join(""); if (s.area){ el("path", {d: d + `L${X(s.pts[s.pts.length - 1][0])},${Y(cfg.base)}L${X(s.pts[0][0])},${Y(cfg.base)}Z`, fill: s.area, stroke: "none"}, svg); } const p = el("path", {d, fill: "none", stroke: s.color, "stroke-width": s.w || 2, "stroke-linejoin": "round", "stroke-dasharray": s.dash || ""}, svg); if (s.dots) s.pts.forEach(q => el("circle", {cx: X(q[0]), cy: Y(q[1]), r: 4, fill: s.color, stroke: "#0b1016", "stroke-width": 2}, svg)); return p; });
+  (cfg.marks || []).forEach(mk => { el("circle", {cx: X(mk.x), cy: Y(mk.y), r: 7, fill: mk.color || C.y, stroke: "#0b1016", "stroke-width": 2}, svg); if (mk.label){ const t = el("text", {x: X(mk.x) + (mk.dx || 0), y: Y(mk.y) - 12, fill: "#fff", "font-size": 12, "font-weight": 800, "text-anchor": mk.anchor || "middle"}, svg); t.textContent = mk.label; } });
+  (cfg.hlines || []).forEach(hl => { if (hl.y < y0 || hl.y > y1) return; el("line", {x1: m.l, x2: W - m.r, y1: Y(hl.y), y2: Y(hl.y), stroke: hl.color, "stroke-dasharray": "5 4", "stroke-width": 1.3}, svg); const t = el("text", {x: W - m.r - 4, y: Y(hl.y) - 5, fill: hl.color, "font-size": 11, "text-anchor": "end"}, svg); t.textContent = hl.label; });
+  if (cfg.animate){ paths.forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.getBoundingClientRect(); p.style.transition = `stroke-dashoffset ${cfg.animate}ms ease-in-out`; p.style.strokeDashoffset = 0; }); }
+  const cross = el("line", {y1: m.t, y2: H - m.b, stroke: "#55657a", "stroke-width": 1, opacity: 0}, svg);
+  const dots = cfg.series.map(s => el("circle", {r: 5, fill: s.color, stroke: "#0b1016", "stroke-width": 2, opacity: 0}, svg));
+  const ov = el("rect", {x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent"}, svg);
+  ov.addEventListener("mousemove", e => { const r = svg.getBoundingClientRect(); const xv = x0 + (e.clientX - r.left - m.l) / (W - m.l - m.r) * (x1 - x0); let rows = []; cfg.series.forEach((s, i) => { let best = s.pts[0]; for (const p of s.pts) if (Math.abs(p[0] - xv) < Math.abs(best[0] - xv)) best = p; dots[i].setAttribute("cx", X(best[0])); dots[i].setAttribute("cy", Y(best[1])); dots[i].setAttribute("opacity", 1); rows.push([s, best]); }); cross.setAttribute("x1", X(rows[0][1][0])); cross.setAttribute("x2", X(rows[0][1][0])); cross.setAttribute("opacity", 1); showTip(e, `<b>${cfg.xFmt ? cfg.xTip ? cfg.xTip(rows[0][1][0]) : cfg.xFmt(rows[0][1][0]) : rows[0][1][0]}</b><br>` + rows.map(([s, p]) => `<span style="color:${s.color}">●</span> ${s.name}: <b>${cfg.yFmt ? cfg.yFmt(p[1]) : p[1]}</b>`).join("<br>")); });
+  ov.addEventListener("mouseleave", () => { hideTip(); cross.setAttribute("opacity", 0); dots.forEach(d => d.setAttribute("opacity", 0)); });
+  return {X, Y, svg};
+}
+
+/* Moon Dev: grouped bar chart, zero baseline, hover tooltip per bar. */
+function barChart(box, cfg){
+  const W = box.clientWidth || 600, H = cfg.h || 230, m = {l: 50, r: 10, t: 18, b: cfg.bottom || 30};
+  box.innerHTML = ""; const svg = el("svg", {width: W, height: H}, box);
+  const anim = cfg.animate && !box.dataset.drawn; box.dataset.drawn = 1;
+  const vals = cfg.series.flatMap(s => s.vals).filter(v => v != null).concat([0]);
+  let y0 = Math.min(...vals), y1 = Math.max(...vals); const pad = (y1 - y0) * .12 || 1; y0 = y0 < 0 ? y0 - pad : 0; y1 = y1 > 0 ? y1 + pad : 0;
+  const Y = v => m.t + (1 - (v - y0) / (y1 - y0)) * (H - m.t - m.b);
+  niceTicks(y0, y1, 4).forEach(v => { el("line", {x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: C.grid}, svg); const t = el("text", {x: m.l - 6, y: Y(v) + 4, fill: C.ax, "font-size": 11, "text-anchor": "end"}, svg); t.textContent = (cfg.yFmt || (v => v + "%"))(v); });
+  const n = cfg.cats.length, ns = cfg.series.length, gw = (W - m.l - m.r) / n, bw = Math.max(1.5, Math.min(46, (gw - Math.min(10, gw * .25)) / ns - (ns > 1 ? 2 : 0)));
+  cfg.cats.forEach((c, i) => {
+    const gx = m.l + i * gw + (gw - (bw + 2) * ns) / 2;
+    if (cfg.shade && cfg.shade(i)) el("rect", {x: m.l + i * gw, y: m.t, width: gw, height: H - m.t - m.b, fill: "rgba(255,201,74,.05)"}, svg);
+    cfg.series.forEach((s, j) => { const v = s.vals[i]; if (v == null) return; const x = gx + j * (bw + 2), ya = Y(Math.max(0, v)), hh = Math.max(1.5, Math.abs(Y(v) - Y(0))); const col = typeof s.color === "function" ? s.color(v, i) : s.color; const r = el("rect", {x, y: ya, width: bw, height: hh, rx: 3, fill: col, opacity: s.op || 1}, svg);
+      if (anim){ r.setAttribute("height", 0); r.setAttribute("y", Y(0)); setTimeout(() => { r.style.transition = "all .7s cubic-bezier(.2,.8,.2,1)"; r.setAttribute("height", hh); r.setAttribute("y", ya); }, 30 + i * 40); }
+      if (cfg.labels !== false){ const t = el("text", {x: x + bw / 2, y: v >= 0 ? ya - 4 : ya + hh + 12, fill: "#cfd7e2", "font-size": bw < 22 ? 9.5 : 11, "text-anchor": "middle", "font-weight": 600}, svg); t.textContent = (cfg.lblFmt || (v => num(v, 1)))(v); }
+      const hit = el("rect", {x: x - 2, y: m.t, width: bw + 4, height: H - m.t - m.b, fill: "transparent"}, svg); hit.addEventListener("mousemove", e => showTip(e, cfg.tip ? cfg.tip(i, j) : `${c}<br>${s.name}: <b>${pct(v)}</b>`)); hit.addEventListener("mouseleave", hideTip); });
+    const lines = String(c).split("\n").slice(0, gw < 56 ? 1 : 9); lines.forEach((ln, k) => { const t = el("text", {x: m.l + i * gw + gw / 2, y: H - m.b + 14 + k * 12, fill: cfg.catColor ? cfg.catColor(i) : C.ax, "font-size": gw < 56 ? 9 : 11, "text-anchor": "middle"}, svg); t.textContent = ln; });
+  });
+  el("line", {x1: m.l, x2: W - m.r, y1: Y(0), y2: Y(0), stroke: "#4a5869", "stroke-width": 1.2}, svg);
+}
+
+function divColor(v, lim){ lim = lim || 5; const k = Math.max(-1, Math.min(1, v / lim)); const base = [30, 38, 49]; const tgt = k >= 0 ? [34, 224, 138] : [255, 77, 94]; const a = Math.abs(k); const c = base.map((b, i) => Math.round(b + (tgt[i] - b) * a)); return `rgb(${c.join(",")})`; }
+function txtOn(v, lim){ return Math.abs(v / (lim || 5)) > .6 ? "#071009" : "#e9eef5"; }
+
+/* Moon Dev: chips row helper */
+function chipRow(box, label, vals, cur, fmt, onPick, enabled){
+  const row = h(`<div class="chips"><span class="lab">${label}</span></div>`);
+  vals.forEach(v => { const c = h(`<span class="chip">${fmt ? fmt(v) : v}</span>`); if (String(v) === String(cur)) c.classList.add("on"); if (enabled && !enabled(v)) c.classList.add("off"); c.onclick = () => { if (c.classList.contains("off")) return; onPick(v); }; row.appendChild(c); });
+  box.appendChild(row); return row;
+}
+
+/* Moon Dev: generic grid explorer. Rows are real grid runs. Heatmap of one metric over two knobs, chips for the rest. */
+function Explorer(box, o){
+  const st = Object.assign({}, o.init); let win = o.wins[0].key;
+  const match = (r, skip) => o.dims.every(d => skip.includes(d.key) || String(r[d.key]) === String(st[d.key]));
+  function render(){
+    box.innerHTML = "";
+    const winBox = o.winBox; if (winBox){ winBox.innerHTML = ""; o.wins.forEach(w => { const c = h(`<span class="chip ${w.key === win ? "on" : ""}">${w.label}</span>`); c.onclick = () => { win = w.key; render(); }; winBox.appendChild(c); }); }
+    o.dims.filter(d => d.key !== o.rowKey && d.key !== o.colKey).forEach(d => {
+      chipRow(box, d.label, d.vals, st[d.key], d.fmt, v => { st[d.key] = v; if (!o.rows.some(r => match(r, [o.rowKey, o.colKey]))){ let best = null, bs = -1; o.rows.forEach(r => { if (String(r[d.key]) !== String(v)) return; const s = o.dims.filter(x => String(r[x.key]) === String(st[x.key])).length; if (s > bs){ bs = s; best = r; } }); if (best) o.dims.forEach(x => st[x.key] = best[x.key]); } render(); },
+        v => o.rows.some(r => String(r[d.key]) === String(v) && o.dims.every(x => x.key === d.key || x.key === o.rowKey || x.key === o.colKey || (o.free || []).includes(x.key) || String(r[x.key]) === String(st[x.key]))) || o.rows.some(r => String(r[d.key]) === String(v)));
+    });
+    const rd = o.dims.find(d => d.key === o.rowKey), cd = o.dims.find(d => d.key === o.colKey);
+    const wrap = h(`<div class="hm"></div>`); const g = h(`<div class="hmg" style="grid-template-columns:110px repeat(${cd.vals.length},minmax(0,1fr))"></div>`);
+    g.appendChild(h(`<div class="hmh">${rd.label} ↓ / ${cd.label} →</div>`)); cd.vals.forEach(v => g.appendChild(h(`<div class="hmh">${cd.fmt ? cd.fmt(v) : v}</div>`)));
+    rd.vals.forEach(rv => { g.appendChild(h(`<div class="hmh">${rd.fmt ? rd.fmt(rv) : rv}</div>`)); cd.vals.forEach(cv => {
+      const r = o.rows.find(x => String(x[o.rowKey]) === String(rv) && String(x[o.colKey]) === String(cv) && match(x, [o.rowKey, o.colKey]));
+      if (!r){ g.appendChild(h(`<div class="hmc na">not run</div>`)); return; }
+      const mt = o.metric(r, win); const thin = mt.n < (o.minN || 30);
+      const c = h(`<div class="hmc">${mt.avg == null ? "n/a" : pct(mt.avg, 1)}<small>${mt.n} tr${mt.t != null ? " · t " + num(mt.t, 1) : ""}</small></div>`);
+      c.style.background = mt.avg == null ? "#121821" : divColor(mt.avg, o.lim); c.style.color = mt.avg == null ? C.m : txtOn(mt.avg, o.lim); if (thin) c.style.opacity = .45;
+      if (String(rv) === String(st[o.rowKey]) && String(cv) === String(st[o.colKey])) c.classList.add("sel");
+      if (o.pick && o.pick(r)) c.classList.add("pick");
+      c.onclick = () => { st[o.rowKey] = rv; st[o.colKey] = cv; render(); };
+      c.onmousemove = e => showTip(e, o.cellTip ? o.cellTip(r) : ""); c.onmouseleave = hideTip;
+      g.appendChild(c); }); });
+    wrap.appendChild(g); box.appendChild(wrap);
+    box.appendChild(h(`<div class="note">Cell = avg trade after all costs, ${o.wins.find(w => w.key === win).label.toLowerCase()}. Faded = under ${o.minN || 30} trades. Gold ring = the version picked in sample. Click a cell for the split.</div>`));
+    const sel = o.rows.find(r => match(r, [])); if (sel) box.appendChild(h(o.detail(sel)));
+  }
+  render();
+}
+function detBox(label, avg, n, t, extra){ return `<div class="box"><div class="l">${label}</div><div class="v ${cls(avg)}">${pct(avg)}</div><div class="s">${comma(n)} trades · t ${num(t)}${extra || ""}</div></div>`; }
+
+/* Moon Dev: snap slider over real precomputed cost points */
+function CostSlider(box, o){
+  box.innerHTML = ""; const rd = h(`<div class="readout"></div>`); box.appendChild(rd);
+  const cb = h(`<div class="chartbox"></div>`); box.appendChild(cb);
+  const sl = h(`<input type="range" min="0" max="${o.xs.length - 1}" step="1" value="${o.start}">`); box.appendChild(sl);
+  const lbl = h(`<div class="note"></div>`); box.appendChild(lbl);
+  const dies = o.series.map(s => { const k = s.vals.findIndex(v => v <= 0); return k < 0 ? `${s.name}: still positive at ${o.xs[o.xs.length - 1]} ${o.unit}` : (k === 0 ? `${s.name}: already negative at ${o.xs[0]} ${o.unit}` : `${s.name}: dies between ${o.xs[k - 1]} and ${o.xs[k]} ${o.unit}`); });
+  function draw(){ const i = +sl.value; rd.innerHTML = `<div class="box"><div class="l">${o.xLabel}</div><div class="v y">${o.xs[i]} <small>${o.unit}</small></div></div>` + o.series.map(s => `<div class="box"><div class="l">${s.name}</div><div class="v ${cls(s.vals[i])}">${pct(s.vals[i])}</div></div>`).join("");
+    lineChart(cb, {h: o.h || 190, series: o.series.map(s => ({name: s.name, color: s.color, pts: o.xs.map((x, k) => [x, s.vals[k]]), dots: true})), base: 0, yExtra: [0], yFmt: v => num(v, 1) + "%", xFmt: v => v + "", xTicks: o.xs, marks: o.series.map(s => ({x: o.xs[i], y: s.vals[i], color: "#fff"})), hlines: o.hlines});
+    lbl.innerHTML = (o.note ? o.note + "<br>" : "") + dies.join(" · "); }
+  sl.oninput = draw; onResize(draw);
+}
+
+/* ================= HERO ================= */
+$("#vtitle").textContent = D.video.title; $("#vchan").textContent = D.video.channel; $("#vlink").href = D.video.url;
+const p3o = P3.oos, p3c = P3.chase_oos;
+$("#heroSub").innerHTML = `a trade, <b>out of sample</b>. Bouncy ball short on Hyperliquid daily, ${P3.markets.hl_1d.n_symbols} alts. <b>${comma(p3o.trades)} trades, t ${p3o.t_stat}</b>, profit factor ${p3o.profit_factor}, ${p3o.symbols_positive_pct}% of coins positive. Knobs picked before 2024-07-01, then frozen.`;
+$("#heroVs").innerHTML = [
+  ["Same knobs, in sample", P3.is.avg_trade_pct, `${comma(P3.is.trades)} trades · t ${P3.is.t_stat}`],
+  ["Chase the crash instead", p3c.avg_trade_pct, `${comma(p3c.trades)} trades · t ${p3c.t_stat}`],
+  ["At 2x costs", P3.oos2x.avg_trade_pct, `t ${P3.oos2x.t_stat} · ${P3.oos2x.symbols_positive_pct}% coins up`],
+  ["First pass (old rules)", P3.first_pass.avg_trade_pct, `${comma(P3.first_pass.trades)} trades`]
+].map(x => `<div class="vs"><div class="l">${x[0]}</div><div class="v ${cls(x[1])}">${pct(x[1])}</div><div class="s">${x[2]}</div></div>`).join("");
+const bm = Object.fromEntries(P3.by_market.map(x => [x.market.split(" ")[0], x]));
+const yr3 = Object.fromEntries(P3.by_year.map(x => [x.year, x]));
+$("#heroCav").innerHTML = `<span>Daily only. Intraday out of sample: 15m ${pct(bm.binance_15m.avg_trade_pct)}, 1h ${pct(bm.binance_1h.avg_trade_pct)}, 4h ${pct(bm.binance_4h.avg_trade_pct)}. Years are lumpy: 2022 ${pct(yr3[2022].avg_trade_pct, 1)} and 2025 ${pct(yr3[2025].avg_trade_pct, 1)} carry it, 2023 ${pct(yr3[2023].avg_trade_pct, 1)}. ${P3.markets.hl_1d.no_funding_symbols.length} of ${P3.markets.hl_1d.n_symbols} coins had no funding file.</span>`;
+inView($("#heroNum"), () => countUp($("#heroNum"), p3o.avg_trade_pct, 2, true, "%", 1800));
+
+const ck = (ok, k, v) => `<li class="${ok ? "ok" : "no"}"><span class="k">${k}</span><span class="v">${v}</span></li>`;
+const bl = P1.regime.out_of_sample;
+const cardsData = [
+  {id: "pkg3", cls: "pass", badge: "PASSES THE BAR", sub: "better version found, daily only", name: "Bouncy ball short", claim: `"Short the failed bounce, don't chase the crash." (about ${P3.claim_time})`, o: P3.oos, i: P3.is,
+   checks: [ck(P3.oos.avg_trade_pct > 0, "Avg trade > 0", pct(P3.oos.avg_trade_pct)), ck(P3.oos.t_stat >= 2, "t-stat ≥ 2", num(P3.oos.t_stat)), ck(P3.oos.profit_factor >= 1.2, "Profit factor ≥ 1.2", num(P3.oos.profit_factor)), ck(P3.oos.symbols_positive_pct >= 55, "Coins positive ≥ 55%", P3.oos.symbols_positive_pct + "%"), ck(P3.oos2x.avg_trade_pct > 0, "Positive at 2x costs", pct(P3.oos2x.avg_trade_pct)), `<li class="extra ${P3.oos.avg_trade_pct > p3c.avg_trade_pct ? "ok" : "no"}"><span class="k">Beats chasing the crash</span><span class="v">${pct(p3c.avg_trade_pct)}</span></li>`],
+   cav: `Coins positive is ${P3.oos.symbols_positive_pct}%, just over 55% (${P3.oos2x.symbols_positive_pct}% at 2x costs). Chase also went positive in most daily combos out of sample: alts bled.`},
+  {id: "pkg1", cls: "np", badge: "NOT PROVEN", sub: "passes the bar, fails the regime check", name: "Right side of the V", claim: `"Wait for the lower high, don't call the top." (about ${P1.claim_time})`, o: P1.oos, i: P1.is,
+   checks: [ck(P1.edge.avg_trade_positive, "Avg trade > 0", pct(P1.oos.avg_trade_pct)), ck(P1.edge.t_stat_ge_2, "t-stat ≥ 2", num(P1.oos.t_stat)), ck(P1.edge.profit_factor_ge_1_2, "Profit factor ≥ 1.2", num(P1.oos.profit_factor)), ck(P1.edge.symbols_positive_ge_55pct, "Coins positive ≥ 55%", P1.oos.symbols_positive_pct + "%"), ck(P1.edge.positive_at_2x_costs, "Positive at 2x costs", pct(P1.oos2x.avg_trade_pct)), `<li class="extra ${P1.edge.beats_blind_short_same_coins_t_ge_2 ? "ok" : "no"}"><span class="k">Beats a blind short, t ≥ 2</span><span class="v">t ${num(bl.excess_t_stat)}</span></li>`],
+   cav: `In sample only ${P1.is.trades} funded trades at t ${P1.is.t_stat}. Median trade ${pct(P1.oos.median_trade_pct, 1)}: a fat right tail. Blind short of the same coins made ${pct(bl.blind_short_avg_pct)}.`},
+  {id: "pkg2", cls: "bust", badge: "BUSTED", sub: "worked to 2021, lost since", name: "IPO lockup expiry short", claim: `"3,200 lockups: about −1.8% around expiry." (about ${P2.claim_time})`, o: P2.oos, i: P2.is,
+   checks: [ck(P2.edge.checks.avg_positive, "Avg trade > 0", pct(P2.oos.avg_trade_pct)), ck(P2.edge.checks.t_ge_2, "t-stat ≥ 2", num(P2.oos.t_stat)), ck(P2.edge.checks.pf_ge_1_2, "Profit factor ≥ 1.2", num(P2.oos.profit_factor)), ck(P2.edge.checks.symbols_positive_ge_55, "Names positive ≥ 55%", P2.oos.win_rate + "%"), ck(P2.edge.checks.positive_at_2x_costs, "Positive at 2x costs", pct(P2.oos2x.avg_trade_pct)), `<li class="extra ${P2.edge.checks.in_sample_positive ? "ok" : "no"}"><span class="k">In sample (2015 to mid 2021)</span><span class="v">${pct(P2.is.avg_trade_pct)}</span></li>`],
+   cav: `One trade per IPO, so names positive = win rate. ${comma(P2.funnel.dropped_no_yahoo_or_window)} IPOs had no Yahoo history (survivorship). Borrow is a 10% a year grid, not a real feed.`},
+];
+$("#cards").innerHTML = cardsData.map(c => `<div class="card ${c.cls}" data-go="${c.id}"><div><span class="badge ${c.cls}">${c.badge}</span></div><h3>${c.name}</h3><div class="claim">${c.claim}</div><div class="big ${cls(c.o.avg_trade_pct)}" data-cnt="${c.o.avg_trade_pct}">${pct(c.o.avg_trade_pct)}</div><div class="bigl">avg trade out of sample · ${comma(c.o.trades)} trades · ${c.sub}</div><div class="is">In sample: <b class="${cls(c.i.avg_trade_pct)}">${pct(c.i.avg_trade_pct)}</b> on ${comma(c.i.trades)} trades, t ${num(c.i.t_stat)}</div><ul class="checks">${c.checks.join("")}</ul><div class="cav">${c.cav}</div></div>`).join("");
+document.querySelectorAll(".card").forEach(c => { c.onclick = () => document.getElementById(c.dataset.go).scrollIntoView({behavior: "smooth"}); const b = c.querySelector(".big"); inView(b, () => countUp(b, +b.dataset.cnt, 2, true, "%", 1500)); });
+$("#rules").innerHTML = [
+  "Knobs picked <b>in sample</b>, then frozen", "Crypto split <b>2024-07-01</b>, IPO split <b>2021-07-01</b>", "Out of sample avg trade <b>&gt; 0</b>", "t-stat <b>≥ 2</b>", "Profit factor <b>≥ 1.2</b>", "<b>55%+</b> of coins positive", "Still positive at <b>2x costs</b>", "Fees <b>4.5 bp</b> + slippage <b>10 bp</b> a side", "Real <b>funding</b> (crypto), <b>10%/yr borrow</b> grid (IPOs)"
+].map(r => `<span class="rule">${r}</span>`).join("");
+
+/* ================= EQUITY ================= */
+const dms = s => Date.parse(s + "T00:00:00Z");
+const yFmtX = v => num(v, 2) + "x";
+const yearTicks = (a, b) => { const out = []; for (let y = new Date(a).getUTCFullYear() + 1; y <= new Date(b).getUTCFullYear(); y++) out.push(Date.UTC(y, 0, 1)); return out; };
+const eqDefs = [
+  {P: P3, name: "Bouncy ball", note: `Out of sample: ${pct(P3.oos.total_return_pct, 1)} total, Sharpe ${P3.oos.sharpe}, max DD ${pct(P3.oos.max_dd_pct, 1)}. Buy and hold same coins: ${pct(P3.oos.buy_hold_return_pct, 1)}.`, color: C.g, cav: "Equal weight, each coin gets 1/n of capital, so the curve is small but steady."},
+  {P: P1, name: "Right side of the V", note: `Out of sample: ${pct(P1.oos.total_return_pct, 1)} total, Sharpe ${P1.oos.sharpe}, max DD ${pct(P1.oos.max_dd_pct, 1)}. Buy and hold: ${pct(P1.oos.buy_hold_return_pct, 1)}.`, color: C.y, cav: `In sample it lost ${pct(P1.is.total_return_pct, 1)} with a ${pct(P1.is.max_dd_pct, 1)} drawdown. The OOS rise is the first time it worked.`},
+  {P: P2, name: "IPO lockup short", note: `Out of sample: ${pct(P2.oos.total_return_pct, 1)} total, max DD ${pct(P2.oos.max_dd_pct, 1)}. In sample: ${pct(P2.is.total_return_pct, 1)}.`, color: C.r, cav: "Compounds each trade at 10% of equity. Overlapping trades make the drawdown deep."},
+];
+$("#eqs").innerHTML = eqDefs.map((e, i) => `<div class="panel"><h4>${e.name} <span class="badge ${["pass", "np", "bust"][i]} pill">${["PASS", "NOT PROVEN", "BUSTED"][i]}</span></h4><div class="chartbox" id="eq${i}"></div><div class="note">${e.note}</div><div class="cav">${e.cav}</div></div>`).join("");
+eqDefs.forEach((e, i) => { const box = $("#eq" + i); const pts = e.P.equity.map(p => [dms(p[0]), p[1]]); let first = true;
+  const draw = () => { lineChart(box, {h: 210, series: [{name: "Strategy (growth of 1)", color: e.color, pts, w: 2.2}], split: dms(e.P.split), base: 1, yFmt: yFmtX, xFmt: v => new Date(v).getUTCFullYear(), xTip: v => new Date(v).toISOString().slice(0, 10), xTicks: yearTicks(pts[0][0], pts[pts.length - 1][0]), animate: first ? 3200 : 0}); };
+  inView(box, () => { onResize(draw); first = false; setInterval(() => { first = true; draw(); first = false; }, 14000); }); });
+
+/* ================= REPLAY ================= */
+const rps = [
+  {k: "STX", P: P3, lab: "STX · bouncy ball", note: "Hyperliquid daily. Gold dash = stop above the swing high. Exits: stop or the 15 day time stop. Real trades from the picked version, wins and losses."},
+  {k: "WLD", P: P1, lab: "WLD · right side of V", note: "Hyperliquid daily, the picked rule. All 4 trades in this window hit the stop: this is the median trade (out of sample median " + pct(P1.oos.median_trade_pct, 1) + "). The edge lives in a few big winners."},
+  {k: "BYND", P: P2, lab: "BYND · lockup", note: `Beyond Meat, lockup day 0 = ${P2.replay.day0} (gold line). Day 0 close to close: ${pct(P2.bynd_day0_pct, 1)}. Short day −10 open to day +5 close (IWM hedged) made ${pct(P2.replay.trades[0].ret_pct, 1)}; the first pass day −2 to +2 window made ${pct(P2.replay.trades[1].ret_pct, 1)}. Yahoo split adjusted prices, so the levels look odd; returns are ratios.`},
+];
+let rpI = 0, rpTimer = null;
+function replayRun(){
+  const R = rps[rpI], rp = R.P.replay, box = $("#replay"); $("#rpNote").innerHTML = R.note;
+  $("#rpTabs").innerHTML = ""; rps.forEach((x, i) => { const c = h(`<span class="chip ${i === rpI ? "on" : ""}">${x.lab}</span>`); c.onclick = () => { rpI = i; replayRun(); }; $("#rpTabs").appendChild(c); });
+  const W = box.clientWidth || 800, H = innerWidth < 760 ? 300 : 388, m = {l: 58, r: 12, t: 14, b: 24}; box.innerHTML = ""; const svg = el("svg", {width: W, height: H}, box);
+  const bars = rp.bars, n = bars.length; let lo = Math.min(...bars.map(b => b[3])), hi = Math.max(...bars.map(b => b[2])); rp.trades.forEach(t => { if (t.stop) hi = Math.max(hi, t.stop); });
+  const pad = (hi - lo) * .05; lo -= pad; hi += pad; const bw = (W - m.l - m.r) / n; const X = i => m.l + i * bw + bw / 2, Y = v => m.t + (1 - (v - lo) / (hi - lo)) * (H - m.t - m.b);
+  niceTicks(lo, hi, 5).forEach(v => { el("line", {x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: C.grid}, svg); const t = el("text", {x: m.l - 6, y: Y(v) + 4, fill: C.ax, "font-size": 11, "text-anchor": "end"}, svg); t.textContent = v >= 100 ? v.toFixed(0) : v >= 1 ? v.toFixed(2) : v.toFixed(3); });
+  const idx = d => bars.findIndex(b => b[0] >= d);
+  for (let i = 0; i < n; i += Math.ceil(n / (W < 500 ? 3 : 6))){ const t = el("text", {x: X(i), y: H - 6, fill: C.ax, "font-size": 11, "text-anchor": "middle"}, svg); t.textContent = bars[i][0].slice(0, 7); }
+  if (rp.day0){ const i0 = idx(rp.day0); el("line", {x1: X(i0), x2: X(i0), y1: m.t, y2: H - m.b, stroke: C.y, "stroke-width": 2}, svg); const t = el("text", {x: X(i0) + 5, y: m.t + 12, fill: C.y, "font-size": 11, "font-weight": 800}, svg); t.textContent = "LOCKUP DAY 0"; }
+  const gC = el("g", {}, svg), gT = el("g", {}, svg);
+  const cand = bars.map((b, i) => { const g = el("g", {opacity: 0}, gC); const up = b[4] >= b[1]; const col = up ? "#2fbf7f" : "#e2475a"; el("line", {x1: X(i), x2: X(i), y1: Y(b[2]), y2: Y(b[3]), stroke: col, "stroke-width": 1}, g); el("rect", {x: X(i) - Math.max(1, bw * .35), y: Y(Math.max(b[1], b[4])), width: Math.max(2, bw * .7), height: Math.max(1, Math.abs(Y(b[1]) - Y(b[4]))), fill: col}, g); return g; });
+  const tr = rp.trades.map(t => ({t, ei: idx(t.entry_time), xi: idx(t.exit_time), shown: 0}));
+  let k = 0; clearInterval(rpTimer);
+  const panel = el("g", {}, svg); const pt = el("text", {x: W - m.r - 6, y: m.t + 14, fill: "#e9eef5", "font-size": 13, "font-weight": 800, "text-anchor": "end"}, panel);
+  let tally = 0, cnt = 0;
+  rpTimer = setInterval(() => {
+    if (k < n){ cand[k].setAttribute("opacity", 1);
+      tr.forEach(o => { const t = o.t;
+        if (k === o.ei && !o.shown){ o.shown = 1; const x = X(o.ei); if (t.stop) el("line", {x1: x, x2: X(Math.max(o.xi, o.ei + 2)), y1: Y(t.stop), y2: Y(t.stop), stroke: C.y, "stroke-dasharray": "4 3", "stroke-width": 1.5}, gT); const a = el("path", {d: `M${x - 7},${Y(t.entry) - 16}L${x + 7},${Y(t.entry) - 16}L${x},${Y(t.entry) - 4}Z`, fill: C.r}, gT); const lb = el("text", {x, y: Y(t.entry) - 22, fill: C.r, "font-size": 11, "font-weight": 800, "text-anchor": "middle", "paint-order": "stroke", stroke: "#0b1016", "stroke-width": 4}, gT); lb.textContent = "SHORT"; }
+        if (k === o.xi && o.shown === 1){ o.shown = 2; const win = t.ret_pct > 0; el("line", {x1: X(o.ei), x2: X(o.xi), y1: Y(t.entry), y2: Y(t.exit), stroke: win ? C.g : C.r, "stroke-width": 2.5}, gT); el("circle", {cx: X(o.xi), cy: Y(t.exit), r: 6, fill: win ? C.g : C.r, stroke: "#0b1016", "stroke-width": 2}, gT); const lb = el("text", {x: X(o.xi) + 8, y: win ? Y(t.exit) + 22 : Y(t.exit) - 12, fill: win ? C.g : C.r, "font-size": 13, "font-weight": 800, "text-anchor": "start", "paint-order": "stroke", stroke: "#0b1016", "stroke-width": 4}, gT); lb.textContent = pct(t.ret_pct, 1) + " " + t.reason.split(",")[0].slice(0, 18); tally += t.ret_pct; cnt++; pt.textContent = `${cnt} trade${cnt > 1 ? "s" : ""} · sum ${pct(tally, 1)}`; }
+      }); k++; }
+    else if (k++ > n + 45){ replayRun(); }
+  }, 55);
+}
+inView($("#replay"), () => { replayRun(); });
+let rpW = 0; renderers.push(() => { const w = $("#replay").clientWidth; if (rpW && Math.abs(w - rpW) > 30) replayRun(); rpW = w; });
+
+/* ================= TAPE ================= */
+const tps = [
+  {P: P3, lab: "Bouncy ball", rows: P3.trades, note: "All 1,521 trades of the picked version, in time order. OOS = after 2024-07-01."},
+  {P: P1, lab: "Right side V", rows: P1.trades.filter(t => t[6] === 1), note: "Funded trades only (the headline set). 922 more trades had no funding data and are kept apart."},
+  {P: P2, lab: "Lockup", rows: P2.trades, note: "All 1,278 lockup shorts: open day −10 to close day +5, IWM hedged, 10% borrow."},
+];
+let tpI = 0, tpTimer = null;
+function tapeRun(){
+  const T = tps[tpI]; $("#tpTabs").innerHTML = ""; tps.forEach((x, i) => { const c = h(`<span class="chip ${i === tpI ? "on" : ""}">${x.lab}</span>`); c.onclick = () => { tpI = i; tapeRun(); }; $("#tpTabs").appendChild(c); });
+  $("#tpNote").textContent = T.note; const tape = $("#tape"); tape.innerHTML = ""; clearInterval(tpTimer);
+  let i = 0, sum = 0, wins = 0, best = -1e9;
+  const stats = $("#tpStats"); stats.innerHTML = `<div class="box"><div class="l">Trades</div><div class="v" id="ts0">0</div></div><div class="box"><div class="l">Running avg</div><div class="v" id="ts1">0</div></div><div class="box"><div class="l">Win rate</div><div class="v" id="ts2">0</div></div><div class="box"><div class="l">Best trade</div><div class="v g" id="ts3">0</div></div>`;
+  tpTimer = setInterval(() => {
+    for (let s = 0; s < 3; s++){ if (i >= T.rows.length){ i = 0; sum = 0; wins = 0; best = -1e9; tape.innerHTML = ""; }
+      const t = T.rows[i++]; sum += t[3]; if (t[3] > 0) wins++; best = Math.max(best, t[3]);
+      if (s === 2){ const row = h(`<div class="trow flash ${t[3] > 0 ? "w" : "l"}"><span><b>${t[0]}</b></span><span class="m">${t[1]}</span><span class="rs">SHORT · ${t[4].split(",")[0]}${t[5] ? ' <span class="tag y">OOS</span>' : ""}</span><span class="rv ${cls(t[3])}">${pct(t[3], 1)}</span></div>`); tape.prepend(row); setTimeout(() => row.classList.remove("flash"), 900); while (tape.children.length > 30) tape.lastChild.remove(); } }
+    const avg = sum / i; $("#ts0").textContent = comma(i) + " / " + comma(T.rows.length); const a = $("#ts1"); a.textContent = pct(avg); a.className = "v " + cls(avg); $("#ts2").textContent = (wins / i * 100).toFixed(1) + "%"; $("#ts3").textContent = pct(best, 1);
+  }, 260);
+}
+inView($("#tape"), tapeRun);
+
+/* ================= CLAIMS ================= */
+const eo = (mk, knobs, entry) => P1.entry_order.find(x => x.market === mk && x.knobs === knobs && x.entry === entry);
+const EW = P2.event_windows.all;
+const km = P3.knob_means;
+const claims = [
+  {ts: "about 2:40", who: "Strategy 2, right side of the V", q: "Stop calling the top. Wait for a lower high, then short.", st: "VERIFIED", proof: pct(eo("hl_1d", "K=2.0 N=30 exit=ema10", "lower_high").oos.avg_trade_pct), pl: "lower high break, out of sample, his base knobs",
+   more: [`Call the top (first red bar): ${pct(eo("hl_1d", "K=2.0 N=30 exit=ema10", "call_top").oos.avg_trade_pct)} on ${eo("hl_1d", "K=2.0 N=30 exit=ema10", "call_top").oos.trades} trades`, `10 EMA cross, no lower high: ${pct(eo("hl_1d", "K=2.0 N=30 exit=ema10", "ema_cross").oos.avg_trade_pct)} on ${eo("hl_1d", "K=2.0 N=30 exit=ema10", "ema_cross").oos.trades} trades`, "Same order on 8h, 4h and 1h, but all three lose there", "Waiting costs less than guessing. That part holds every time."], go: "pkg1"},
+  {ts: "about 2:40", who: "Strategy 2, right side of the V", q: "Shorting the right side of the V has an edge.", st: "NOT PROVEN", proof: pct(P1.oos.avg_trade_pct), pl: `best version, out of sample, ${P1.oos.trades} funded trades, t ${P1.oos.t_stat}`,
+   more: [`In sample: ${pct(P1.is.avg_trade_pct)} on only ${P1.is.trades} trades, t ${P1.is.t_stat}`, `A blind short of the same coins made ${pct(bl.blind_short_avg_pct)}. Excess ${pct(bl.excess_avg_pct)} at t ${bl.excess_t_stat}, under 2`, `Median trade ${pct(P1.oos.median_trade_pct, 1)}: a few big winners carry it`, `2026 so far: ${pct(P1.by_year.find(y => y.year === 2026).avg_trade_pct)} on ${P1.by_year.find(y => y.year === 2026).trades} trades`], go: "pkg1"},
+  {ts: "about 1:50", who: "Strategy 1, microcaps", q: "Small caps run 50% to 100%+. Short the backside of the move.", st: "NOT TESTED", proof: "no data", pl: "stocks side check could not run",
+   more: ["iShares serves the IWM holdings CSV behind a bot wall, so there was no small cap list", "The crypto version of the same idea is the right side of the V test above", "Script is ready: drop the CSV in by hand and rerun"], go: "pkg1"},
+  {ts: "about 5:00", who: "Strategy 3, offerings", q: "Short a spike into a stock offering when price fails at the offer.", st: "NOT TESTED", proof: "no data", pl: "needs an offerings feed (SEC 424B filings)",
+   more: ["Not in the 3 test packages", "Listed as idea 5 in IDEAS.md for a later round"], go: null},
+  {ts: "about 7:10", who: "Strategy 4, bouncy ball", q: "Bounces shrink. Short the failed bounce instead of chasing the crash.", st: "BETTER VERSION FOUND", proof: pct(P3.oos.avg_trade_pct), pl: `out of sample, ${comma(P3.oos.trades)} trades, t ${P3.oos.t_stat}, daily`,
+   more: [`Chase the crash, same knobs: ${pct(p3c.avg_trade_pct)} on ${comma(p3c.trades)} trades`, `First pass rules lost ${pct(P3.first_pass.avg_trade_pct)}. The fix: 20% crash, 2 bounces, pivot 5, bounce at most 0.7x, 15 day time stop`, `Passes every check of the bar, at 2x costs too (${pct(P3.oos2x.avg_trade_pct)})`, "Caveat: 2022 and 2025 carry it, and chase also went positive in most daily combos (alt bleed)"], go: "pkg3"},
+  {ts: "about 7:10", who: "Strategy 4, bouncy ball", q: "The third bounce is smaller again. Wait for it.", st: "BUSTED", proof: pct(km.B["3"][1]), pl: `mean out of sample avg trade, 3 bounces (${km.B["3"][0]} daily combos)`,
+   more: [`2 bounces: ${pct(km.B["2"][1])} mean over ${km.B["2"][0]} combos`, "The third weaker bounce gives fewer trades and worse trades", `Decay barely matters: 0.5x ${pct(km.R["0.5"][1])}, 0.7x ${pct(km.R["0.7"][1])}, 1.0x ${pct(km.R["1.0"][1])}. Just lower is enough`], go: "pkg3"},
+  {ts: "Moon Dev test", who: "Bouncy ball, timeframe", q: "Does it work intraday on crypto perps?", st: "BUSTED", proof: pct(bm.binance_15m.avg_trade_pct), pl: "Binance 15m, out of sample, best in sample knobs",
+   more: [`1h: ${pct(bm.binance_1h.avg_trade_pct)} (t ${bm.binance_1h.t_stat})`, `4h: ${pct(bm.binance_4h.avg_trade_pct)} (t ${bm.binance_4h.t_stat})`, `Daily: ${pct(bm.hl_1d.avg_trade_pct)} (t ${bm.hl_1d.t_stat})`, `Binance 15m: ${P3.combos_pos["binance_15m|ball"][1]} of ${P3.combos_pos["binance_15m|ball"][0]} combos positive out of sample`], go: "pkg3"},
+  {ts: "about 7:40", who: "Strategy 4, squeeze risk", q: "Violent counter trend rallies stop you out. (Moon Dev's guard test)", st: "NOT PROVEN", proof: "+" + P3.squeeze[0].lift + "%", pl: "lift from skipping negative funding, under the +0.5% bar",
+   more: [`BTC under its 50 day SMA guard hurt: ${pct(P3.squeeze[2].before.avg_trade_pct)} to ${pct(P3.squeeze[2].after.avg_trade_pct)}`, "Short liquidation spike guard: too few trades on BTC ETH SOL XRP to say", "All three guards together: 0 daily trades"], go: "pkg3"},
+  {ts: "about 8:30", who: "Strategy 5, the lockup study", q: "Over 3,200 lockups: about −1.8% abnormal return around expiry.", st: "BUSTED", proof: pct(EW.minus2_to_plus2.mean_pct), pl: `day −2 to +2 vs IWM, ${comma(EW.minus2_to_plus2.n)} events, t ${EW.minus2_to_plus2.t_stat}`,
+   more: [`Expiry week day 0 to +4: ${pct(EW.expiry_week_0_to_4.mean_pct)} (t ${EW.expiry_week_0_to_4.t_stat})`, `2015 to mid 2021 expiry week: ${pct(P2.event_windows.early_2015_to_mid2021.expiry_week_0_to_4.mean_pct)} (t ${P2.event_windows.early_2015_to_mid2021.expiry_week_0_to_4.t_stat}), not significant`, "Real dates from 2,871 EDGAR 424B4 filings, lock-up length read from each filing"], go: "pkg2"},
+  {ts: "about 8:30", who: "Strategy 5, the lockup study", q: "Volume jumps about 40% in expiry week.", st: "BUSTED", proof: num(EW.volume_week_0_to_4_over_adv20.median) + "x", pl: "median expiry week volume vs the 20 day average",
+   more: [`Mean is ${num(EW.volume_week_0_to_4_over_adv20.mean, 1)}x, pulled up by a few micro caps printing 100x days`, `Only ${EW.volume_week_0_to_4_over_adv20.share_above_1}% of events trade above normal volume that week`, `Early years median: ${num(P2.event_windows.early_2015_to_mid2021.volume_week_0_to_4_over_adv20.median)}x`], go: "pkg2"},
+  {ts: "about 9:00", who: "Strategy 5, Beyond Meat", q: "BYND fell more than 20% on its lockup day, Oct 29 2019.", st: "VERIFIED", proof: pct(P2.bynd_day0_pct, 1), pl: "BYND close to close on 2019-10-29 (Yahoo)",
+   more: [`Best window short (day −10 to +5, hedged): ${pct(P2.replay.trades[0].ret_pct, 1)}`, "One great example does not make an edge: see the 1,278 event average"], go: "pkg2"},
+  {ts: "about 9:30", who: "Strategy 5, his filters", q: "Pick the big insider gain plus big new supply vs volume.", st: "BUSTED", proof: pct(P2.best_filter.oos.avg_trade_pct), pl: `out of sample, ${P2.best_filter.oos.trades} trades (gain over 100% and top tercile locked supply)`,
+   more: [`In sample the same filter made ${pct(P2.best_filter.is.avg_trade_pct)} on ${P2.best_filter.is.trades} trades, t ${P2.best_filter.is.t_stat}`, "In 2024 and 2025 the hot $4 micro cap IPOs ran straight through their lockups", "Classic flip: the best shorts of 2015 to 2021 became the worst"], go: "pkg2"},
+  {ts: "about 10:00", who: "Strategy 5, front running", q: "Everyone knows the date, so the selling gets priced in before.", st: "VERIFIED", proof: pct(EW.front_run_minus20_to_minus1.mean_pct), pl: `day −20 to −1 vs IWM, t ${EW.front_run_minus20_to_minus1.t_stat}, ${EW.front_run_minus20_to_minus1.share_negative}% of events down`,
+   more: [`Median ${pct(EW.front_run_minus20_to_minus1.median_pct)}`, `Day −10 to +10: ${pct(EW.minus10_to_plus10.mean_pct)} (t ${EW.minus10_to_plus10.t_stat})`, `Day 0 alone: ${pct(EW.day0_only.mean_pct)}. The drop is before the date, not on it`], go: "pkg2"},
+  {ts: "about 10:10", who: "Strategy 5, SpaceX", q: "Sometimes it gaps down at expiry and rallies. Go long that.", st: "NOT PROVEN", proof: pct(P2.flip.hold_5.out_of_sample.avg_trade_pct), pl: `long the day 0 close, hold 5 days, out of sample, ${P2.flip.hold_5.out_of_sample.trades} trades, t ${P2.flip.hold_5.out_of_sample.t_stat}`,
+   more: [`In sample it lost ${pct(P2.flip.hold_5.in_sample.avg_trade_pct)} (t ${P2.flip.hold_5.in_sample.t_stat})`, `It beats every short window in the late years (best short ${pct(P2.oos.avg_trade_pct)})`, "The sign flipped with the era, same as the short"], go: "pkg2"},
+];
+const stCls = {"VERIFIED": "ver", "BUSTED": "bust", "BETTER VERSION FOUND": "bvf", "NOT PROVEN": "np", "NOT TESTED": "nt"};
+let cSel = 4, cFilt = "ALL", cAuto = true;
+function claimsRender(){
+  const fb = $("#cfilter"); fb.innerHTML = ""; ["ALL", "VERIFIED", "BUSTED", "BETTER VERSION FOUND", "NOT PROVEN", "NOT TESTED"].forEach(f => { const n = f === "ALL" ? claims.length : claims.filter(c => c.st === f).length; const c = h(`<span class="chip ${f === cFilt ? "on" : ""}">${f} · ${n}</span>`); c.onclick = () => { cFilt = f; cAuto = false; const first = claims.findIndex(x => f === "ALL" || x.st === f); if (first >= 0) cSel = first; claimsRender(); }; fb.appendChild(c); });
+  $("#clist").innerHTML = ""; claims.forEach((c, i) => { if (cFilt !== "ALL" && c.st !== cFilt) return; const it = h(`<div class="citem ${i === cSel ? "sel" : ""}"><span class="ts">${c.ts}</span><span>${c.q}</span><span class="badge ${stCls[c.st]}">${c.st}</span></div>`); it.onclick = () => { cSel = i; cAuto = false; claimsRender(); }; $("#clist").appendChild(it); });
+  const c = claims[cSel]; const pc = c.st === "NOT TESTED" ? "m" : (c.st === "VERIFIED" || c.st === "BETTER VERSION FOUND" ? (c.proof.startsWith("−") ? "r" : "g") : (c.proof.startsWith("−") ? "r" : "y"));
+  $("#cdet").innerHTML = `<span class="badge ${stCls[c.st]}">${c.st}</span><div class="q">"${c.q}"</div><div class="who">${c.who} · ${c.ts}</div><div class="proof ${pc}">${c.proof}</div><div class="pl">${c.pl}</div><ul class="more">${c.more.map(x => `<li>${x}</li>`).join("")}</ul>${c.go ? `<div style="margin-top:14px"><button class="btn" onclick="document.getElementById('${c.go}').scrollIntoView({behavior:'smooth'})">See the full test ↓</button></div>` : ""}`;
+}
+claimsRender();
+setInterval(() => { if (!cAuto) return; cSel = (cSel + 1) % claims.length; claimsRender(); }, 6000);
+
+/* ================= TAKEAWAYS ================= */
+const exm = P1.exit_means;
+$("#take").innerHTML = [
+  [pct(P3.oos.avg_trade_pct), `Short the second, smaller bounce on daily alts, not the crash. Chasing the crash made ${pct(p3c.avg_trade_pct)} a trade on the same coins.`],
+  [pct(bm.binance_15m.avg_trade_pct), `Do not run these shorts on 15m or 1h crypto bars. Fees and funding eat the small moves (1h: ${pct(bm.binance_1h.avg_trade_pct)}).`],
+  [pct(exm.target_2R[1]), `Your exit matters more than your entry. A 2R target beat covering on the first close over the 10 EMA (${pct(exm.ema10[1])}), mean across the grid.`],
+  [pct(EW.front_run_minus20_to_minus1.mean_pct), `Lockup selling happens in the 20 days BEFORE the date, not on it (day −2 to +2: ${pct(EW.minus2_to_plus2.mean_pct)}). And the short has lost since 2022.`],
+  [pct(eo("hl_1d", "K=2.0 N=30 exit=ema10", "call_top").oos.avg_trade_pct), `Calling the top loses more than waiting for the lower high (${pct(eo("hl_1d", "K=2.0 N=30 exit=ema10", "lower_high").oos.avg_trade_pct)}). Being late with proof is the better trade.`],
+].map(t => `<div class="tk" style="border-left-color:${t[0].startsWith("−") ? C.r : C.g}"><div class="n ${t[0].startsWith("−") ? "r" : "g"}">${t[0]}</div><p>${t[1]}</p></div>`).join("");
+
+/* ================= PACKAGE 3 ================= */
+$("#p3q").innerHTML = `${P3.claim} <span class="m">(about ${P3.claim_time})</span>`;
+const p3rows = P3.grid.map(r => ({market: r[0], mode: r[1], D: r[2], N: r[3], B: r[4], R: r[5], P: r[6], exit: r[7], is: [r[8], r[9], r[10]], oos: [r[11], r[12], r[13], r[14]]}));
+const bp3 = P3.params;
+const mkLab = {binance_15m: "BN 15m", binance_1h: "BN 1h", binance_4h: "BN 4h", hl_15m: "HL 15m", hl_4h: "HL 4h", hl_1d: "HL daily"};
+Explorer($("#p3ex"), {rows: p3rows, winBox: $("#p3win"), wins: [{key: "oos", label: "Out of sample"}, {key: "is", label: "In sample"}], minN: 30,
+  dims: [{key: "market", label: "Market", vals: ["hl_1d", "hl_4h", "binance_4h", "binance_1h", "binance_15m", "hl_15m"], fmt: v => mkLab[v]}, {key: "mode", label: "Entry", vals: ["ball", "chase"], fmt: v => v === "ball" ? "bouncy ball" : "chase crash"},
+    {key: "B", label: "Bounces", vals: [2, 3, 0]}, {key: "R", label: "Decay", vals: [0.5, 0.7, 1.0, 0.0], fmt: v => v + "x"}, {key: "P", label: "Pivot", vals: [2, 3, 5, 0]}, {key: "N", label: "Window", vals: ["30bars", "30days"]},
+    {key: "exit", label: "Exit", vals: ["2R", "3R", "crash_low", "atr3_trail", "time15", "time40"]}, {key: "D", label: "Crash", vals: [0.2, 0.3, 0.4, 0.6], fmt: v => Math.round(v * 100) + "%"}],
+  rowKey: "exit", colKey: "D", init: {market: "hl_1d", mode: "ball", D: bp3.D, N: bp3.N, B: bp3.B, R: bp3.R, P: bp3.P, exit: bp3.exit},
+  metric: (r, w) => w === "oos" ? {avg: r.oos[1], n: r.oos[0], t: r.oos[2]} : {avg: r.is[1], n: r.is[0], t: r.is[2]},
+  pick: r => r.market === bp3.market && r.mode === "ball" && r.D === bp3.D && r.N === bp3.N && r.B === bp3.B && r.R === bp3.R && r.P === bp3.P && r.exit === bp3.exit,
+  cellTip: r => `${mkLab[r.market]} · ${r.mode} · crash ${Math.round(r.D * 100)}% · exit ${r.exit}<br>In sample: ${pct(r.is[1])} (${r.is[0]} tr, t ${num(r.is[2])})<br>Out of sample: ${pct(r.oos[1])} (${r.oos[0]} tr, t ${num(r.oos[2])})`,
+  detail: r => { const ch = p3rows.find(x => x.mode === "chase" && x.market === r.market && x.D === r.D && x.N === r.N && x.exit === r.exit); return `<div class="det">${detBox("In sample", r.is[1], r.is[0], r.is[2])}${detBox("Out of sample", r.oos[1], r.oos[0], r.oos[2], r.oos[3] != null ? " · PF " + num(r.oos[3]) : "")}</div>` + (r.mode === "ball" && ch ? `<div class="note">Chase the crash, same market, crash, window and exit: in sample ${pct(ch.is[1])} (${ch.is[0]} tr), out of sample <b class="${cls(ch.oos[1])}">${pct(ch.oos[1])}</b> (${ch.oos[0]} tr).</div>` : ""); }});
+const cc3 = P3.cost_curve;
+CostSlider($("#p3cost"), {xs: cc3.map(c => c.cost_bp_per_side), unit: "bp a side", xLabel: "Fee + slippage", start: cc3.findIndex(c => c.cost_bp_per_side === 14.5), series: [{name: "Out of sample avg", color: C.y, vals: cc3.map(c => c.avg_trade_pct)}], note: "Real reruns at each cost, best version, funding where known. 14.5 bp = what the headline uses. 29 bp = the 2x cost check."});
+$("#p3cost").appendChild(h(`<div class="cav">Never crosses zero in the tested range: still ${pct(cc3[cc3.length - 1].avg_trade_pct)} at 100 bp a side. Trades last days, so costs are not what kills it. The regime is.</div>`));
+onResize(() => barChart($("#p3tf"), {h: 250, cats: P3.by_market.map(x => mkLab[x.market.split(" ")[0]] + "\n" + x.trades + " tr"), bottom: 40, series: [{name: "Bouncy ball", color: C.y, vals: P3.by_market.map(x => x.avg_trade_pct)}, {name: "Chase", color: C.s, vals: P3.by_market.map(x => x.chase_avg_trade_pct)}],
+  tip: (i, j) => { const x = P3.by_market[i]; const tf = P3.by_timeframe.find(t => x.market.startsWith(t.market)); return `<b>${mkLab[tf.market]}</b> · ${tf.symbols} symbols · ${tf.span}<br>Ball OOS: ${pct(x.avg_trade_pct)} (${x.trades} tr, t ${x.t_stat})<br>Ball IS: ${tf.ball_is.trades ? pct(tf.ball_is.avg_trade_pct) + " (" + tf.ball_is.trades + " tr)" : "no in sample"}<br>Chase OOS: ${pct(x.chase_avg_trade_pct)} (${x.chase_trades} tr)`; }, catColor: i => P3.by_market[i].market.startsWith("hl_1d") ? C.y : C.ax}));
+$("#p3tfc").innerHTML = `<span>Each market uses its own best in sample knobs. HL 15m is only 52 days (a sanity check), HL 4h is 22 meme coins from 2024 with only 12 in sample trades. Combos positive out of sample: HL daily ${P3.combos_pos["hl_1d|ball"][1]} of ${P3.combos_pos["hl_1d|ball"][0]}, BN 15m ${P3.combos_pos["binance_15m|ball"][1]} of ${P3.combos_pos["binance_15m|ball"][0]}.</span>`;
+onResize(() => barChart($("#p3yr"), {h: 250, cats: P3.by_year.map(y => y.year + "\n" + y.trades + " tr"), bottom: 40, series: [{name: "Bouncy ball", color: C.y, vals: P3.by_year.map(y => y.avg_trade_pct)}, {name: "Chase", color: C.s, vals: P3.by_year.map(y => y.chase_avg_trade_pct)}], shade: i => P3.by_year[i].year >= 2024,
+  tip: (i) => { const y = P3.by_year[i]; return `<b>${y.year}</b><br>Ball: ${pct(y.avg_trade_pct)} (${y.trades} tr, t ${y.t_stat})<br>Chase: ${pct(y.chase_avg_trade_pct)} (${y.chase_trades} tr)`; }}));
+$("#p3yrc").innerHTML = `<span>2022 and 2025 carry it. 2023 ${pct(yr3[2023].avg_trade_pct, 1)} and 2024 ${pct(yr3[2024].avg_trade_pct, 1)} lost. It pays in alt bear years. Shaded = out of sample years (split mid 2024). Trades overlap 2 to 3 days, so the t-stat overstates independence a bit.</span>`;
+let kt = "B"; const ktLab = {B: "Bounces", R: "Decay", exit: "Exit"};
+function knobDraw(){ $("#p3kt").innerHTML = ""; ["B", "exit", "R"].forEach(k => { const c = h(`<span class="chip ${k === kt ? "on" : ""}">${ktLab[k]}</span>`); c.onclick = () => { kt = k; knobDraw(); }; $("#p3kt").appendChild(c); });
+  const ent = Object.entries(P3.knob_means[kt]).sort((a, b) => b[1][1] - a[1][1]);
+  barChart($("#p3knob"), {h: 220, cats: ent.map(e => (kt === "B" ? e[0] + " bounces" : kt === "R" ? e[0] + "x" : e[0]) + "\n" + e[1][0] + " combos"), bottom: 40, series: [{name: "Mean OOS avg trade", color: (v) => v > 0 ? C.g : C.r, vals: ent.map(e => e[1][1])}], animate: true, tip: i => `${ent[i][0]}: mean out of sample avg trade <b>${pct(ent[i][1][1])}</b> over ${ent[i][1][0]} daily ball combos with 100+ trades`});
+  $("#p3kn").textContent = {B: "Two bounces beat three. The third weaker bounce does not help.", R: "How much smaller the bounce is barely matters. Just lower is enough.", exit: "The in sample pick (15 day time stop) is the weakest exit out of sample, and it still held. Targets did better, but that is hindsight."}[kt] + " Mean of out of sample avg trade, HL daily ball combos with 100+ trades."; }
+onResize(knobDraw);
+const gl = {funding_not_negative: "Funding not negative at entry", no_short_liq_spike_BTC_ETH_SOL_XRP: "No short liq spike (BTC ETH SOL XRP)", btc_under_50d_sma: "BTC under its 50 day SMA", all_three: "All three"};
+$("#p3sq").innerHTML = `<table class="t"><tr><th>Guard</th><th>Before (trades, avg)</th><th>After (trades, avg)</th><th>Lift</th></tr>${P3.squeeze.map(s => `<tr><td>${gl[s.guard] || s.guard}</td><td>${s.before.trades} · <span class="${cls(s.before.avg_trade_pct)}">${pct(s.before.avg_trade_pct)}</span></td><td>${s.after.trades} · <span class="${cls(s.after.avg_trade_pct)}">${s.after.trades ? pct(s.after.avg_trade_pct) : "n/a"}</span></td><td class="${cls(s.lift)}">${s.lift == null ? "n/a" : pct(s.lift)}</td></tr>`).join("")}</table><div class="note">Out of sample, on the subset of trades where each guard is known. The bar for "improves": +0.5% lift on 100+ trades.</div>`;
+$("#p3sqc").innerHTML = `<span>Funding is known for only ${P3.funding.symbols_with_funding} coins (${P3.funding.trades_with_funding} trades). On those coins alone the version made ${pct(P3.funding.with_funding_oos.avg_trade_pct)} out of sample (t ${P3.funding.with_funding_oos.t_stat}), weaker than the full set. Funding earned out of sample: about ${pct(P3.funding.oos_avg_funding_earned_pct_per_trade, 2)} a trade.</span>`;
+
+/* ================= PACKAGE 1 ================= */
+$("#p1q").innerHTML = `${P1.claim.slice(0, 220)}${P1.claim.length > 220 ? "..." : ""} <span class="m">(about ${P1.claim_time})</span>`;
+const p1rows = P1.grid.map(r => ({market: r[0], K: r[1], N: r[2], entry: r[3], exit: r[4], is: [r[5], r[6], r[7]], isa: [r[8], r[9], r[10]], oos: [r[11], r[12], r[13], r[14], r[15]]}));
+const bp1 = P1.params; const p1mk = {hl_1d: "HL daily", hl_8h: "HL 8h", hl_4h: "HL 4h", bn_1h: "BN 1h"};
+const enLab = {lower_high: "lower high", call_top: "call top", ema_cross: "EMA cross"};
+Explorer($("#p1ex"), {rows: p1rows, winBox: $("#p1win"), wins: [{key: "oos", label: "Out of sample"}, {key: "is", label: "In sample"}, {key: "isa", label: "In sample, all trades"}], minN: 30,
+  dims: [{key: "market", label: "Market", vals: ["hl_1d", "hl_8h", "hl_4h", "bn_1h"], fmt: v => p1mk[v]}, {key: "entry", label: "Entry", vals: ["lower_high", "call_top", "ema_cross"], fmt: v => enLab[v]}, {key: "N", label: "Base N", vals: [10, 30]},
+    {key: "exit", label: "Exit", vals: ["target_2R", "target_3R", "time_30", "time_10", "atr3_trail", "ema20", "ema10"]}, {key: "K", label: "Run K", vals: [1.5, 2.0, 3.0, 5.0], fmt: v => v + "x"}],
+  rowKey: "exit", colKey: "K", init: {market: "hl_1d", entry: "lower_high", N: 10, exit: "target_2R", K: 1.5},
+  metric: (r, w) => ({avg: r[w][1], n: r[w][0], t: r[w][2]}),
+  pick: r => r.market === bp1.market && r.K === bp1.K && r.N === bp1.N && r.entry === bp1.entry && r.exit === bp1.exit,
+  cellTip: r => `${p1mk[r.market]} · K ${r.K}x · N ${r.N} · ${enLab[r.entry]} · ${r.exit}<br>In sample (funded): ${pct(r.is[1])} (${r.is[0]} tr)<br>In sample (all): ${pct(r.isa[1])} (${r.isa[0]} tr)<br>Out of sample (funded): ${pct(r.oos[1])} (${r.oos[0]} tr, t ${num(r.oos[2])})`,
+  detail: r => `<div class="det">${detBox("In sample, funded", r.is[1], r.is[0], r.is[2])}${detBox("Out of sample, funded", r.oos[1], r.oos[0], r.oos[2], r.oos[4] != null ? " · " + r.oos[4] + "% coins up" : "")}</div><div class="note">In sample with every trade (funding where known): ${pct(r.isa[1])} on ${r.isa[0]} trades, t ${num(r.isa[2])}. The pick was made on this line.</div>`});
+$("#p1reg").innerHTML = (() => { const i = P1.regime.in_sample, o = P1.regime.out_of_sample; return `<div class="det">${detBox("Rule, out of sample", P1.oos.avg_trade_pct, o.trades, P1.oos.t_stat)}<div class="box"><div class="l">Blind short, same coins, 17 bars</div><div class="v ${cls(o.blind_short_avg_pct)}">${pct(o.blind_short_avg_pct)}</div><div class="s">just being short alts paid</div></div><div class="box"><div class="l">Excess over blind short</div><div class="v ${cls(o.excess_avg_pct)}">${pct(o.excess_avg_pct)}</div><div class="s">t ${num(o.excess_t_stat)} · needs 2.00</div></div><div class="box"><div class="l">Trades beating blind short</div><div class="v ${o.excess_positive_pct >= 50 ? "g" : "r"}">${o.excess_positive_pct}%</div><div class="s">in sample ${i.excess_positive_pct}%</div></div></div>
+<div class="cav">This is why it is NOT PROVEN. It clears all 5 checks of the bar, but out of sample is mid 2024 to 2026, when alts bled. A blind short made ${pct(o.blind_short_avg_pct)} a trade on its own, and the extra the rule adds is t ${num(o.excess_t_stat)}.</div>
+<div class="cav">Funding: ${P1.failed_parts[0].split(":")[0]} has ${P1.failed_parts[0].match(/(\d+) of (\d+)/)[0]} coins with no funding data. Those ${comma(P1.no_funding_oos.trades)} out of sample trades are kept apart (${pct(P1.no_funding_oos.avg)} a trade) and never count in the headline.</div>`; })();
+let etk = "K=2.0 N=30 exit=ema10";
+function entryDraw(){ $("#p1et").innerHTML = ""; [["K=2.0 N=30 exit=ema10", "his base knobs"], ["K=1.5 N=10 exit=target_2R", "best knobs"]].forEach(([k, l]) => { const c = h(`<span class="chip ${k === etk ? "on" : ""}">${l}</span>`); c.onclick = () => { etk = k; entryDraw(); }; $("#p1et").appendChild(c); });
+  const mks = ["hl_1d", "hl_8h", "hl_4h", "bn_1h"]; const ens = ["lower_high", "call_top", "ema_cross"]; const cols = [C.g, C.y, C.r];
+  barChart($("#p1entry"), {h: 240, cats: mks.map(m => p1mk[m]), series: ens.map((e, j) => ({name: enLab[e], color: cols[j], vals: mks.map(m => { const x = eo(m, etk, e); return x ? x.oos.avg_trade_pct : null; })})), lblFmt: v => num(v, 1), animate: true,
+    tip: (i, j) => { const x = eo(mks[i], etk, ens[j]); return `<b>${p1mk[mks[i]]} · ${enLab[ens[j]]}</b><br>OOS: ${pct(x.oos.avg_trade_pct)} (${x.oos.trades} tr, t ${num(x.oos.t_stat)})<br>IS: ${pct(x.is.avg_trade_pct)} (${x.is.trades} tr)`; }}); }
+onResize(entryDraw);
+const exOrder = Object.entries(P1.exit_means).sort((a, b) => b[1][1] - a[1][1]);
+const exLab = {target_2R: "2R", target_3R: "3R", time_30: "30 bars", time_10: "10 bars", atr3_trail: "ATR trail", ema20: "20 EMA", ema10: "10 EMA"};
+onResize(() => barChart($("#p1exit"), {h: 240, cats: exOrder.map(e => exLab[e[0]]), series: [{name: "Mean OOS avg", color: v => v > 0 ? C.g : C.r, vals: exOrder.map(e => e[1][1])}], animate: true, catColor: i => exOrder[i][0] === "ema10" ? C.r : C.ax, tip: i => `${exLab[exOrder[i][0]]}: mean out of sample avg trade <b>${pct(exOrder[i][1][1])}</b> over ${exOrder[i][1][0]} combos with 30+ OOS trades`}));
+$("#p1exn").innerHTML = `Mean out of sample avg trade by exit, across every grid combo with 30+ funded OOS trades. The first pass exit (close over the 10 EMA, in red) is the worst: it covers on the first green day.`;
+const cc1 = P1.cost_curve;
+CostSlider($("#p1cost"), {xs: cc1.map(c => c.cost_bp_per_side), unit: "bp slippage", xLabel: "Slippage a side", start: 1, h: 170, series: [{name: "Out of sample", color: C.y, vals: cc1.map(c => c.oos_avg_trade_pct)}, {name: "In sample", color: C.b, vals: cc1.map(c => c.is_avg_trade_pct)}], note: "Plus 4.5 bp fee a side and real funding. Trades last about 17 bars, so costs are not the problem."});
+const fLab = {"none (base)": "None (base)", btc_under_50sma: "BTC under 50 day SMA", funding_above_30d_median: "Funding above 30 day median", volume_dry_up_half_peak: "Lower high volume under half the peak", lower_high_within_3_bars: "Lower high within 3 bars of peak", lower_high_within_5_bars: "within 5 bars", lower_high_within_10_bars: "within 10 bars"};
+$("#p1flt").innerHTML = `<table class="t"><tr><th>Filter</th><th>IS trades</th><th>IS avg</th><th>OOS trades</th><th>OOS avg</th><th>OOS t</th><th>Coins up</th></tr>${P1.filters.map(f => `<tr><td>${fLab[f.filter] || f.filter}${f.filter === "lower_high_within_3_bars" ? '<span class="tag y">PICKED ON OOS</span>' : ""}${f.filter.startsWith("pair") ? '<span class="tag r">OVERFIT</span>' : ""}</td><td>${f.is.trades}</td><td class="${cls(f.is.avg_trade_pct)}">${pct(f.is.avg_trade_pct)}</td><td>${f.oos.trades}</td><td class="${cls(f.oos.avg_trade_pct)}">${pct(f.oos.avg_trade_pct)}</td><td>${num(f.oos.t_stat)}</td><td>${f.oos.symbols_positive_pct}%</td></tr>`).join("")}</table>`;
+const f3 = P1.filters.find(f => f.filter === "lower_high_within_3_bars");
+$("#p1fltc").innerHTML = `<span>The fast lower high (within 3 bars of the peak) made ${pct(f3.oos.avg_trade_pct)} on ${f3.oos.trades} trades out of sample, but it was found by looking at out of sample. It is the next test, not a result. The two "smart" filters (BTC regime, crowded funding) cut the edge in half.</span>`;
+onResize(() => barChart($("#p1yr"), {h: 230, cats: P1.by_year.map(y => y.year + "\n" + y.trades + " tr"), bottom: 40, series: [{name: "Avg trade", color: v => v > 0 ? C.g : C.r, vals: P1.by_year.map(y => y.avg_trade_pct)}], animate: true, tip: i => `${P1.by_year[i].year}: <b>${pct(P1.by_year[i].avg_trade_pct)}</b> on ${P1.by_year[i].trades} funded trades`}));
+$("#p1yrc").innerHTML = `<span>Funded trades only, so early years are thin (Hyperliquid funding history starts mid 2022 and most coins listed later). 2026 so far: ${pct(P1.by_year.find(y => y.year === 2026).avg_trade_pct)} on ${P1.by_year.find(y => y.year === 2026).trades} trades. The 2024 and 2025 run is the alt bear.</span>`;
+
+/* ================= PACKAGE 2 ================= */
+$("#p2q").innerHTML = `${P2.claim.slice(0, 240)}${P2.claim.length > 240 ? "..." : ""} <span class="m">(about ${P2.claim_time})</span>`;
+onResize(() => barChart($("#p2ev"), {h: 260, labels: false, cats: P2.event_curve.map(e => e.day % 10 === 0 ? String(e.day) : ""), series: [{name: "Avg abnormal return", color: (v, i) => P2.event_curve[i].day === 0 ? C.y : (v > 0 ? C.g : C.r), vals: P2.event_curve.map(e => e.avg_abnormal_ret_pct)}], yFmt: v => num(v, 1) + "%",
+  tip: i => { const e = P2.event_curve[i]; return `<b>Day ${e.day}</b><br>Avg abnormal return: ${pct(e.avg_abnormal_ret_pct, 3)} (t ${num(e.t_stat)})<br>Median volume vs 20 day avg: ${num(e.volume_ratio_median)}x<br>n = ${e.n}`; }}));
+$("#p2evc").innerHTML = `<span>Daily averages of a few wild micro caps can swing these bars. The window table compounds each event first: day −20 to −1 is ${pct(EW.front_run_minus20_to_minus1.mean_pct)} mean, ${pct(EW.front_run_minus20_to_minus1.median_pct)} median. Survivorship: ${comma(P2.funnel.dropped_no_yahoo_or_window)} IPOs have no Yahoo history and are missing.</span>`;
+const sets = {all: "All 1,278", parsed_lockup_only: "Parsed lockup", early_2015_to_mid2021: "2015 to mid 2021", late_mid2021_to_2025: "Mid 2021 to 2025"};
+const wins = [["minus2_to_plus2", "Day −2 to +2", "his −1.8%"], ["expiry_week_0_to_4", "Expiry week 0 to +4", "his −1.8%"], ["day0_only", "Day 0 only", ""], ["front_run_minus20_to_minus1", "Day −20 to −1 (front run)", "his warning"], ["minus10_to_plus10", "Day −10 to +10", ""], ["after_plus1_to_plus10", "Day +1 to +10", ""]];
+let setK = "all";
+function winDraw(){ $("#p2set").innerHTML = ""; Object.entries(sets).forEach(([k, l]) => { const c = h(`<span class="chip ${k === setK ? "on" : ""}">${l}</span>`); c.onclick = () => { setK = k; winDraw(); }; $("#p2set").appendChild(c); });
+  const S = P2.event_windows[setK]; const v = S.volume_week_0_to_4_over_adv20;
+  $("#p2win").innerHTML = `<table class="t"><tr><th>Window (vs IWM)</th><th>n</th><th>Mean</th><th>Median</th><th>t</th><th>% down</th></tr>${wins.map(w => { const x = S[w[0]]; return `<tr><td>${w[1]}${w[2] ? `<span class="tag m">${w[2]}</span>` : ""}</td><td>${comma(x.n)}</td><td class="${cls(x.mean_pct)}">${pct(x.mean_pct)}</td><td class="${cls(x.median_pct)}">${pct(x.median_pct)}</td><td class="${Math.abs(x.t_stat) >= 2 ? "y" : ""}">${num(x.t_stat)}</td><td>${x.share_negative}%</td></tr>`; }).join("")}<tr><td>Expiry week volume vs 20 day avg<span class="tag m">his +40%</span></td><td>${comma(v.n)}</td><td>${num(v.mean, 2)}x</td><td class="${v.median >= 1.4 ? "g" : "r"}">${num(v.median, 2)}x</td><td></td><td>${v.share_above_1}% above 1x</td></tr></table><div class="note">t in gold = |t| ≥ 2. Mean volume is huge because a few micro caps print 100x days; the median is the honest number.</div>`;
+  lineChart($("#p2vol"), {h: 150, series: [{name: "Median volume vs 20 day avg", color: C.b, pts: P2.event_curve.map(e => [e.day, e.volume_ratio_median])}], yExtra: [1.4, 0.6], base: 1, yFmt: v => num(v, 2) + "x", xFmt: v => "day " + v, xTicks: [-30, -20, -10, 0, 10, 20], hlines: [{y: 1.4, color: C.y, label: "his +40%"}, {y: 1, color: "#5d6a7b", label: "normal"}]}); }
+onResize(winDraw);
+const p2rows = P2.grid.map(r => ({hedged: r[0], entry: r[1], exit: r[2], borrow: r[3], is: [r[4], r[5], r[6]], oos: [r[7], r[8], r[9], r[10]]}));
+const bp2 = P2.params;
+Explorer($("#p2ex"), {rows: p2rows, winBox: $("#p2wt"), wins: [{key: "oos", label: "Out of sample"}, {key: "is", label: "In sample"}], minN: 30, lim: 4,
+  dims: [{key: "hedged", label: "Hedge", vals: [1, 0], fmt: v => v ? "IWM hedged" : "naked short"}, {key: "borrow", label: "Borrow", vals: [0, 10, 30, 100], fmt: v => v + "%/yr"}, {key: "entry", label: "Short at", vals: [-20, -10, -5, -2, -1, 0], fmt: v => "day " + v}, {key: "exit", label: "Cover at", vals: [0, 1, 2, 5, 10], fmt: v => "day +" + v}],
+  rowKey: "entry", colKey: "exit", init: {hedged: 1, borrow: 10, entry: -10, exit: 5},
+  metric: (r, w) => ({avg: r[w][1], n: r[w][0], t: r[w][2]}),
+  pick: r => !!r.hedged === bp2.hedged && r.entry === bp2.entry_day && r.exit === bp2.exit_day && r.borrow === bp2.borrow_pct,
+  cellTip: r => `Short open day ${r.entry}, cover close day +${r.exit}, ${r.hedged ? "hedged" : "naked"}, borrow ${r.borrow}%<br>In sample: ${pct(r.is[1])} (t ${num(r.is[2])})<br>Out of sample: ${pct(r.oos[1])} (t ${num(r.oos[2])})`,
+  detail: r => `<div class="det">${detBox("2015 to mid 2021", r.is[1], r.is[0], r.is[2])}${detBox("Mid 2021 to 2025", r.oos[1], r.oos[0], r.oos[2], " · PF " + num(r.oos[3]))}</div><div class="note">Flip In sample / Out of sample above: the early years are green almost everywhere, the late years red almost everywhere.</div>`});
+const cc2 = P2.cost_curve, br2 = P2.borrow_curve;
+CostSlider($("#p2cost"), {xs: cc2.map(c => c.cost_bp_per_side), unit: "bp a side", xLabel: "Fee + slippage", start: 3, h: 160, series: [{name: "In sample", color: C.b, vals: cc2.map(c => c.avg_trade_pct_is)}, {name: "Out of sample", color: C.y, vals: cc2.map(c => c.avg_trade_pct_oos)}]});
+CostSlider($("#p2borrow"), {xs: br2.map(c => c.borrow_pct_per_year), unit: "%/yr borrow", xLabel: "Borrow a year", start: 2, h: 160, series: [{name: "In sample", color: C.b, vals: br2.map(c => c.avg_trade_pct_is)}, {name: "Out of sample", color: C.y, vals: br2.map(c => c.avg_trade_pct_oos)}], note: "Borrow is a grid, there is no real borrow feed. Hot IPOs at lockup often cost 30% to 100%+ a year, or cannot be borrowed."});
+onResize(() => barChart($("#p2yr"), {h: 240, cats: P2.by_year.map(y => String(y.year).slice(2) + "\n" + y.trades), bottom: 40, series: [{name: "Avg trade", color: v => v > 0 ? C.g : C.r, vals: P2.by_year.map(y => y.avg_trade_pct)}], animate: true, shade: i => P2.by_year[i].year >= 2022, tip: i => `${P2.by_year[i].year}: <b>${pct(P2.by_year[i].avg_trade_pct)}</b> on ${P2.by_year[i].trades} trades, t ${num(P2.by_year[i].t_stat)}`}));
+$("#p2yrc").innerHTML = `<span>Year '26 is ${P2.by_year[P2.by_year.length - 1].trades} trades so far. Not one year has |t| over 1.4. Shaded = after the split. Labels: year, trades.</span>`;
+const fl2 = P2.filters.map(r => ({f: r[0], is: [r[5], r[6], r[7]], oos: [r[8], r[9], r[10]]})).sort((a, b) => b.is[1] - a.is[1]);
+$("#p2flt").innerHTML = `<table class="t"><tr><th>Filter (best window)</th><th>IS n</th><th>IS avg</th><th>OOS n</th><th>OOS avg</th><th>OOS t</th></tr>${fl2.map(r => `<tr><td>${r.f}${r.f.startsWith("his combo") ? '<span class="tag y">HIS PICK</span>' : ""}${r.f === "ADR only" ? '<span class="tag m">LEAD ONLY</span>' : ""}</td><td>${r.is[0]}</td><td class="${cls(r.is[1])}">${pct(r.is[1])}</td><td>${r.oos[0]}</td><td class="${cls(r.oos[1])}">${pct(r.oos[1])}</td><td>${num(r.oos[2])}</td></tr>`).join("")}</table><div class="cav">ADR only looks great out of sample, but it ranked low in sample (not pickable), the names are tiny foreign $4 IPOs that are often impossible to borrow, and it is thin. A lead, not a result.</div>`;
+$("#p2flip").innerHTML = `<table class="t"><tr><th>Hold</th><th>IS avg</th><th>IS t</th><th>OOS trades</th><th>OOS avg</th><th>OOS t</th><th>OOS PF</th><th>Baseline: long every day 0 (OOS)</th></tr>${["hold_1", "hold_3", "hold_5", "hold_10"].map(k => { const x = P2.flip[k]; return `<tr><td>${k.replace("hold_", "+")} days${k === "hold_5" ? '<span class="tag y">BEST</span>' : ""}</td><td class="${cls(x.in_sample.avg_trade_pct)}">${pct(x.in_sample.avg_trade_pct)}</td><td>${num(x.in_sample.t_stat)}</td><td>${x.out_of_sample.trades}</td><td class="${cls(x.out_of_sample.avg_trade_pct)}">${pct(x.out_of_sample.avg_trade_pct)}</td><td>${num(x.out_of_sample.t_stat)}</td><td>${num(x.out_of_sample.profit_factor)}</td><td class="${cls(x.base_oos.avg_trade_pct)}">${pct(x.base_oos.avg_trade_pct)}</td></tr>`; }).join("")}</table>`;
+$("#p2flipc").innerHTML = `<span>In the late years the long flip (${pct(P2.flip.hold_5.out_of_sample.avg_trade_pct)} at 5 days) beats every short window (best ${pct(P2.oos.avg_trade_pct)}). Not proven: t ${P2.flip.hold_5.out_of_sample.t_stat}, ${P2.flip.hold_5.out_of_sample.win_rate}% winners, and it lost ${pct(P2.flip.hold_5.in_sample.avg_trade_pct)} in sample.</span>`;
+
+/* ================= BOT ================= */
+const KW = /\b(def|import|from|return|if|else|elif|for|in|while|not|and|or|True|False|None|as|break|continue|raise|lambda|with|try|except|is)\b/g;
+function hlLine(s, state){
+  const esc = t => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  if (state.doc){ if (s.includes('"""')){ state.doc = false; } return `<span class="st">${esc(s)}</span>`; }
+  if (s.trim().startsWith('"""')){ if (!(s.trim().length > 3 && s.trim().endsWith('"""') && s.trim() !== '"""')) state.doc = true; return `<span class="st">${esc(s)}</span>`; }
+  let out = "", i = 0; const re = /("[^"]*"|'[^']*'|#.*$)/g; let mm;
+  while ((mm = re.exec(s))){ out += code(esc(s.slice(i, mm.index))); out += mm[0][0] === "#" ? `<span class="cm">${esc(mm[0])}</span>` : `<span class="st">${esc(mm[0])}</span>`; i = mm.index + mm[0].length; }
+  return out + code(esc(s.slice(i)));
+  function code(t){ return t.replace(KW, '<span class="kw">$1</span>').replace(/\b(\d[\d_]*\.?\d*)\b/g, '<span class="nu">$1</span>').replace(/\b([a-z_][a-z0-9_]*)(?=\()/gi, '<span class="fn">$1</span>'); }
+}
+const botLines = P1.bot.split("\n"); const hst = {doc: false}; const botHL = botLines.map(l => hlLine(l, hst));
+let typed = false, typeTimer = null;
+function typeBot(all){
+  const box = $("#code"); box.innerHTML = ""; clearInterval(typeTimer);
+  if (all){ box.innerHTML = botHL.map((l, i) => `<span class="ln" data-n="${i + 1}">${l || " "}</span>`).join(""); return; }
+  let li = 0, ci = 0, cur = null;
+  typeTimer = setInterval(() => { for (let s = 0; s < 9; s++){ if (li >= botLines.length){ clearInterval(typeTimer); return; }
+    if (!cur){ cur = h(`<span class="ln" data-n="${li + 1}"></span>`); box.appendChild(cur); }
+    const L = botLines[li]; if (ci < L.length){ ci = Math.min(L.length, ci + 3); cur.textContent = L.slice(0, ci); } else { cur.innerHTML = botHL[li] || " "; cur = null; li++; ci = 0; }
+    if (box.scrollHeight - box.scrollTop - box.clientHeight < 80 || li < 5) box.scrollTop = box.scrollHeight; } }, 16);
+}
+inView($("#code"), () => typeBot(false));
+$("#botAll").onclick = () => typeBot(true);
+$("#botInfo").innerHTML = `<h4>What it trades</h4><div class="det"><div class="box"><div class="l">Market</div><div class="v y" style="font-size:20px">Hyperliquid perps</div><div class="s">daily candles, one coin per bot</div></div><div class="box"><div class="l">Mode</div><div class="v r" style="font-size:20px">LIVE = False</div><div class="s">dry run, prints signals only</div></div></div>
+<ul class="more" style="margin:14px 0 0 0;list-style:none">
+<li style="margin:6px 0"><b class="y">1. Run:</b> high is ${bp1.K}x the ${bp1.N} bar low.</li>
+<li style="margin:6px 0"><b class="y">2. Turn:</b> a green candle after the peak that stays under it = the lower high.</li>
+<li style="margin:6px 0"><b class="y">3. Entry:</b> a close under that candle's low and under the 10 EMA. Short the next open.</li>
+<li style="margin:6px 0"><b class="y">4. Stop:</b> just above the lower high. <b class="y">Target:</b> 2R. Cap: ${bp1.max_hold_bars} candles.</li></ul>
+<h4 style="margin-top:18px">Its real backtest line</h4>
+<div class="det">${detBox("Out of sample", P1.oos.avg_trade_pct, P1.oos.trades, P1.oos.t_stat, " · PF " + P1.oos.profit_factor)}${detBox("In sample", P1.is.avg_trade_pct, P1.is.trades, P1.is.t_stat, " · PF " + P1.is.profit_factor)}</div>
+<div class="cav">Ships as a dry run on purpose. It clears the 5 checks but not the blind short check (excess t ${num(bl.excess_t_stat)}), and the in sample side is ${P1.is.trades} trades at t ${P1.is.t_stat}. Read notes.md before you flip LIVE. Keys load from .env via dotenv and are never printed. No wallet address in the file.</div>`;
+
+/* ================= FOOTER ================= */
+$("#foot").innerHTML = `<b style="color:#e9eef5">What failed or is missing (said plainly)</b><ul>${[...P1.failed_parts.map(x => "Right side of V: " + x.slice(0, 190) + (x.length > 190 ? "..." : "")), ...P3.failed_parts.map(x => "Bouncy ball: " + x.slice(0, 190)), ...P2.failed_parts.map(x => "Lockup: " + x)].map(x => `<li>${x}</li>`).join("")}</ul>
+<p style="margin-top:12px">Video: <a href="${D.video.url}" target="_blank" rel="noopener">${D.video.title}</a> by ${D.video.channel}. All credit for the ideas goes to the creator. Backtests, data and dashboard by Moon Dev. Every number on this page is read from alpha/*/result.json by dashboard/build_dashboard.py. Code and notes: alpha/1_right_side_v, alpha/2_lockup, alpha/3_bouncy_ball.</p>`;
+</script>
+</body>
+</html>
