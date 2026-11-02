@@ -16,17 +16,44 @@ WHAT THIS TESTS:
             Stop 15% above entry, target 30% under (2R). Same 15 day time stop.
   Fees: 4.5 bp taker each side. Funding is NOT included.
 
+SQUEEZE GUARD (optional, Moon Dev API): his big risk for this trade is the violent counter trend rally.
+  The Moon Dev API (https://moondev.com/docs) lists the large positions sitting closest to liquidation on
+  Hyperliquid, GET /api/positions/all.json. Shorts near liquidation are squeeze fuel: a pop force buys them.
+  This script pulls that snapshot for real on every run and prints, per coin, short fuel / long fuel.
+  With LIVE_SQUEEZE_GUARD = True it skips the coins whose short fuel is over SQUEEZE_X times the long fuel.
+  It is a snapshot of today, not history, so it cannot be applied to past trades. It tells you which coins
+  are squeeze bait right now. Key: MOONDEV_API_KEY in .env, never printed.
+
 DATA: Moon Dev's real Hyperliquid daily candles (about 123 coins, 2020 to Aug 2026). No synthetic data.
 """
 import numpy as np
 import pandas as pd
 from backtesting import Backtest, Strategy
 from moon_dev_common import load_hl_daily, summary, TAKER_FEE
+from moon_dev_api import near_liq_totals  # Moon Dev API, docs https://moondev.com/docs
 
 DROP = 0.40
 LOOKBACK = 30
 PIV = 2
 MAX_HOLD = 15
+LIVE_SQUEEZE_GUARD = False  # Moon Dev: True skips coins whose near liquidation short fuel is over SQUEEZE_X times the long fuel today
+SQUEEZE_X = 1.5
+
+
+def live_squeeze_snapshot(coins):
+    """Moon Dev: near liquidation fuel per coin from the Moon Dev API, right now. Returns one row per coin we trade."""
+    tot = near_liq_totals()
+    tot = tot[tot.index.isin(coins)].copy()
+    tot["short_x_long"] = (tot["short_value"] / tot["long_value"]).round(2)
+    tot = tot.sort_values("short_x_long", ascending=False)
+    lines = [f"===== Moon Dev API squeeze snapshot: /api/positions/all.json, updated {tot.attrs['updated_at']} =====",
+             f"{len(tot)} of our {len(coins)} coins have $75k+ positions near liquidation. Short fuel / long fuel, highest first:",
+             tot.head(15).to_string(),
+             f"Squeeze bait today (short fuel over {SQUEEZE_X}x long fuel): {', '.join(tot.index[tot['short_x_long'] > SQUEEZE_X]) or 'none'}",
+             f"LIVE_SQUEEZE_GUARD = {LIVE_SQUEEZE_GUARD}"]
+    text = "\n".join(lines)
+    print(text)
+    return tot, text
 
 
 def build_signals(df):
@@ -99,6 +126,11 @@ def run(mode, data):
 if __name__ == "__main__":
     print("Moon Dev: bouncy ball short vs chasing the crash")
     data = load_hl_daily()
+    fuel, fuel_text = live_squeeze_snapshot(list(data))
+    if LIVE_SQUEEZE_GUARD:
+        bait = set(fuel.index[fuel["short_x_long"] > SQUEEZE_X])
+        data = {c: df for c, df in data.items() if c not in bait}
+        print(f"Moon Dev: squeeze guard on, skipping {len(bait)} coins, {len(data)} left")
     out = []
     for mode in ["ball", "chase"]:
         results, full = run(mode, data)
@@ -107,5 +139,7 @@ if __name__ == "__main__":
         out.extend(full)
         for block in full:
             print(block)
+    out.append(fuel_text)
     open("results/bouncy_ball_short.txt", "w").write("\n".join(out) + "\n")
+    print(fuel_text)
     print("Moon Dev: saved results/bouncy_ball_short.txt")

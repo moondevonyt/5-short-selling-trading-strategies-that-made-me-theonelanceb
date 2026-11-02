@@ -163,6 +163,15 @@ table.t tr:hover td{background:#0f1620}
 .cursor{display:inline-block;width:8px;height:16px;background:#22e08a;vertical-align:middle;animation:pulse 1s infinite}
 .btn{font:700 12px Inter,sans-serif;background:#141c26;border:1px solid #2a384a;color:#dbe2eb;border-radius:7px;padding:5px 10px;cursor:pointer}
 .btn:hover{border-color:#ffc94a}
+.snip{font-variant-ligatures:none;background:#05070a;border:1px solid #1a2330;border-radius:12px;padding:14px 16px;overflow:auto;font:12.5px/1.55 "JetBrains Mono",monospace;color:#dbe2eb;white-space:pre;margin:0}
+.snip .k{color:#ffc94a}.snip .c{color:#5d6a7b}.snip .s{color:#22e08a}
+.apitape{max-height:330px;overflow-y:auto;margin-top:8px}
+.apistat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:8px 0 10px}
+.apistat .box{background:#0e141c;border:1px solid #1d2733;border-radius:10px;padding:10px}
+.apistat .l{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8a96a6;font-weight:800}
+.apistat .v{font:800 22px "JetBrains Mono",monospace}
+.apistat .s{font:11.5px "JetBrains Mono",monospace;color:#aab4c2}
+@media (max-width:760px){.apistat{grid-template-columns:1fr 1fr}}
 .foot{color:#7d8898;font-size:13px;padding:24px 0 40px;border-top:1px solid #18202b;margin-top:30px}
 .foot li{margin:3px 0 3px 18px}
 .chartbox{position:relative;width:100%}
@@ -287,6 +296,18 @@ table.t tr:hover td{background:#0f1620}
     <div class="g64">
       <div class="panel"><h4>alpha/1_right_side_v/bot.py <button class="btn" id="botAll">show all</button></h4><div class="code" id="code"></div></div>
       <div class="panel" id="botInfo"></div>
+    </div>
+  </section>
+
+  <section class="sec pkg" id="api">
+    <div class="pkgh"><span class="badge bvf">REAL DATA · LIVE PULL</span><h2>Moon Dev API: the liquidation data behind the squeeze guard</h2><div class="q" id="apiq"></div></div>
+    <div class="g64">
+      <div class="panel"><h4>Latest 100 Hyperliquid liquidations <span class="badge nt pill">GET /api/liquidations/1h.json</span></h4><div class="apistat" id="apiStat"></div><div class="legend"><span><i class="sq" style="background:#ff4d5e"></i>Longs liquidated (forced sells)</span><span><i class="sq" style="background:#22e08a"></i>Shorts liquidated (forced buys)</span></div><div class="chartbox" id="apiLiqChart"></div><div class="note">Dollar value liquidated by coin over the 1 hour window, from the endpoint's stats block. Top 10 coins.</div><div class="tw apitape" id="apiTape"></div><div class="note" id="apiTapeNote"></div></div>
+      <div class="panel"><h4>Squeeze fuel near liquidation <span class="badge nt pill">GET /api/positions/all.json</span></h4><div class="legend"><span><i class="sq" style="background:#22e08a"></i>Shorts near liquidation (squeeze fuel)</span><span><i class="sq" style="background:#ff4d5e"></i>Longs near liquidation</span></div><div class="chartbox" id="apiFuel"></div><div class="note" id="apiFuelNote"></div><div class="tw" id="apiNear"></div><div class="cav" id="apiCav"></div></div>
+    </div>
+    <div class="g64" style="margin-top:16px">
+      <div class="panel"><h4>Pull it yourself <button class="btn" id="apiCopy">copy snippet</button><a class="btn" style="text-decoration:none" href="https://moondev.com/docs" target="_blank" rel="noopener">docs: moondev.com/docs</a></h4><pre class="snip" id="apiSnip"></pre><div class="note">The header reads MOONDEV_API_KEY from .env. The key is never printed and is not in this page. Get one at <a href="https://moondev.com/docs" target="_blank" rel="noopener">moondev.com/docs</a>.</div></div>
+      <div class="panel" id="apiWhere"></div>
     </div>
   </section>
 
@@ -712,6 +733,31 @@ $("#botInfo").innerHTML = `<h4>What it trades</h4><div class="det"><div class="b
 <h4 style="margin-top:18px">Its real backtest line</h4>
 <div class="det">${detBox("Out of sample", P1.oos.avg_trade_pct, P1.oos.trades, P1.oos.t_stat, " · PF " + P1.oos.profit_factor)}${detBox("In sample", P1.is.avg_trade_pct, P1.is.trades, P1.is.t_stat, " · PF " + P1.is.profit_factor)}</div>
 <div class="cav">Ships as a dry run on purpose. It clears the 5 checks but not the blind short check (excess t ${num(bl.excess_t_stat)}), and the in sample side is ${P1.is.trades} trades at t ${P1.is.t_stat}. Read notes.md before you flip LIVE. Keys load from .env via dotenv and are never printed. No wallet address in the file.</div>`;
+
+/* ================= MOON DEV API PANEL (real rows baked in at build time, see build_dashboard.py) ================= */
+const A = D.api;
+const usdM = v => "$" + num(v, v < 10 ? 2 : 1) + "M";
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+$("#apiq").textContent = `Moon Dev's rule for public repos: show the real API call. These rows were pulled by build_dashboard.py at ${A.pulled_at} and baked into this page. Nothing here is made up, and nothing here is live: rebuild the page to refresh it.`;
+const ls = A.liq_stats;
+$("#apiStat").innerHTML = [["Liquidations, 1h", comma(ls.total_count), "events in the window"], ["Value, 1h", usdM(ls.total_value_usd / 1e6), "all coins"], ["Longs wiped", usdM(ls.long_value_usd / 1e6), comma(ls.long_count) + " events"], ["Shorts wiped", usdM(ls.short_value_usd / 1e6), comma(ls.short_count) + " events"]]
+  .map(([l, v, s], i) => `<div class="box"><div class="l">${l}</div><div class="v ${["y", "y", "r", "g"][i]}">${v}</div><div class="s">${s}</div></div>`).join("");
+onResize(() => barChart($("#apiLiqChart"), {h: 210, cats: A.liq_by_coin.map(x => x[0].replace("xyz:", "") + "\n" + comma(x[3])), bottom: 36, yFmt: v => "$" + num(v, 1) + "M", lblFmt: v => num(v, 2),
+  series: [{name: "Longs liquidated", color: C.r, vals: A.liq_by_coin.map(x => x[1])}, {name: "Shorts liquidated", color: C.g, vals: A.liq_by_coin.map(x => x[2])}],
+  tip: (i, j) => `${A.liq_by_coin[i][0]} · ${comma(A.liq_by_coin[i][3])} liquidations in 1h<br>${j ? "Shorts" : "Longs"} liquidated: <b>${usdM(A.liq_by_coin[i][j + 1])}</b>`}));
+$("#apiTape").innerHTML = `<table class="t"><tr><th>time (UTC)</th><th>coin</th><th>side</th><th>value</th><th>price</th></tr>${A.liq_rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="${r[2] === "short" ? "g" : "r"}">${r[2]}</td><td>$${comma(r[3])}</td><td>${comma(r[4])}</td></tr>`).join("")}</table>`;
+$("#apiTapeNote").textContent = `${A.liq_rows.length} rows, ${A.liq_window[0]} to ${A.liq_window[1]} UTC. The endpoint returns the latest 100 events at every timeframe plus stats for the whole window. "short" = a short got force bought (squeeze fuel burning).`;
+onResize(() => barChart($("#apiFuel"), {h: 210, cats: A.fuel.map(x => `${x[0]}\n${comma(x[2])} shorts · ${comma(x[1])} longs`), bottom: 36, yFmt: v => "$" + num(v, 0) + "M", lblFmt: v => num(v, 0),
+  series: [{name: "Shorts near liq", color: C.g, vals: A.fuel.map(x => x[4])}, {name: "Longs near liq", color: C.r, vals: A.fuel.map(x => x[3])}],
+  tip: (i, j) => `${A.fuel[i][0]}<br>${j ? "Longs" : "Shorts"} near liquidation: <b>${usdM(A.fuel[i][j ? 3 : 4])}</b> in ${comma(A.fuel[i][j ? 1 : 2])} positions`}));
+$("#apiFuelNote").textContent = `Dollar value of $75k+ positions sitting near their liquidation price, per coin, as of ${A.fuel_updated}. Short fuel / long fuel: ${A.fuel.map(x => `${x[0]} ${num(x[4] / x[3], 2)}x`).join(", ")}.`;
+$("#apiNear").innerHTML = `<table class="t"><tr><th>coin</th><th>side</th><th>to liq</th><th>size</th><th>lev</th><th>liq price</th></tr>${A.nearest.map(r => `<tr><td>${r[0]}</td><td class="${r[1] === "short" ? "g" : "r"}">${r[1]}</td><td>${num(r[2], 2)}%</td><td>${usdM(r[3])}</td><td>${num(r[4], 0)}x</td><td>${comma(r[5])}</td></tr>`).join("")}</table>`;
+$("#apiCav").textContent = "The 3 closest positions per side for BTC, ETH, SOL and XRP. The API also returns the wallet address of each position. Those are dropped by backtests/moon_dev_api.py and never land in this repo.";
+$("#apiSnip").innerHTML = esc(A.snippet).replace(/(#.*)$/gm, '<span class="c">$1</span>').replace(/("[^"\n]*")/g, '<span class="s">$1</span>').replace(/^(import|from)\b/gm, '<span class="k">$1</span>');
+$("#apiCopy").onclick = () => { navigator.clipboard.writeText(A.snippet); $("#apiCopy").textContent = "copied"; setTimeout(() => $("#apiCopy").textContent = "copy snippet", 1500); };
+$("#apiWhere").innerHTML = `<h4>Where this repo calls it</h4><ul class="more" style="margin:6px 0 0 0;list-style:none">${A.where_used.map(x => `<li style="margin:6px 0"><b class="y">·</b> ${esc(x)}</li>`).join("")}</ul>
+<h4 style="margin-top:18px">Endpoints on this page</h4><ul class="more" style="margin:6px 0 0 0;list-style:none">${A.endpoints.map(x => `<li style="margin:6px 0"><code>${x}</code></li>`).join("")}</ul>
+<div class="cav">The liq spike guard in package 3 was judged on 18 months of 5 minute bars from Moon Dev's drive. The API feed gives the latest 100 events (about 25 minutes when it was pulled) plus window stats, so with USE_LOCAL = False the guard knows nothing until you collect the feed over time. The numbers in this panel are a snapshot, not a backtest.</div>`;
 
 /* ================= FOOTER ================= */
 $("#foot").innerHTML = `<b style="color:#e9eef5">What failed or is missing (said plainly)</b><ul>${[...P1.failed_parts.map(x => "Right side of V: " + x.slice(0, 190) + (x.length > 190 ? "..." : "")), ...P3.failed_parts.map(x => "Bouncy ball: " + x.slice(0, 190)), ...P2.failed_parts.map(x => "Lockup: " + x)].map(x => `<li>${x}</li>`).join("")}</ul>

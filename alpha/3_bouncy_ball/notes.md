@@ -60,6 +60,25 @@ Each guard is judged on the subset of trades where it is known, before vs after,
   The best bounce shorts came while BTC was still above its average and alts bled anyway.
 - All three together: 0 daily trades, 18 intraday trades. Not a usable filter set.
 
+## Moon Dev API path for the liq guard (USE_LOCAL = False)
+`moon_dev_bouncy_data.py` has a `USE_LOCAL` switch at the top. True (the committed value) reads the liq_clean files on
+Moon Dev's drive. False builds the same series (short liquidations summed per 5 minutes, 1 hour rolling sum, rolling
+30 day 90th percentile) from the Moon Dev API, `GET https://api.moondev.com/api/liquidations/30d.json`, through
+`backtests/moon_dev_api.py` (key in .env as MOONDEV_API_KEY, docs https://moondev.com/docs).
+
+Real run of the API path, Nov 2 2026, 15:22 UTC, coin BTC (then ETH, SOL, XRP for good measure):
+- The endpoint returned 100 rows (the latest 100 events) spanning 14:57:18 to 15:22:33 UTC, about 25 minutes.
+  The window stats said 610,370 liquidations in the 30 day window, BTC alone 92,892 (short value $215M), but the
+  per event list is capped at 100 rows at every timeframe (1h, 4h, 24h, 7d, 30d all gave 100).
+- In that slice, 0 of the 100 events were BTC shorts (also 0 for ETH, SOL, XRP). The 100 were HIP3 stock perps:
+  xyz:SP500 15 shorts, xyz:DKNG 12, xyz:SNXX 22 longs, and so on. So the BTC series had 0 bars.
+- The rolling 30 day threshold needs 7 days of bars, so even with rows the API path has no threshold. The report
+  now treats a NaN threshold (or an empty book) as "guard unknown", same as the no data case.
+- Bottom line: the API path runs and is wired in, but 100 recent events cannot replace 18 months of 5 minute bars.
+  Readers who want the full guard should collect the feed over time (it updates every 30 seconds) or use the
+  `/api/all_liquidations/30d.json` feed, which returns 1,000 rows across Binance, Bybit, OKX and Hyperliquid.
+- The grid was not rerun. result.json is unchanged.
+
 ## Caveats, read these
 1. Funding: 95 of the 123 daily coins have no local Hyperliquid funding file, so those trades carry no funding.
    The public endpoint would need about 5,000 calls for 3 years of hourly funding and rate limited us, so it was

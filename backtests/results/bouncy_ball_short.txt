@@ -7045,3 +7045,24 @@ _strategy                 MoonDevBouncyBal...
 _equity_curve                             ...
 _trades                            Size  E...
 dtype: object
+===== Moon Dev API squeeze snapshot: /api/positions/all.json, updated 2026-11-02T15:24:46.930991+00:00 =====
+102 of our 123 coins have $75k+ positions near liquidation. Short fuel / long fuel, highest first:
+        longs  shorts  long_value  short_value  short_x_long
+coin                                                        
+PNUT        0       1         0.0    114615.81           inf
+PYTH        0       2         0.0    470547.13           inf
+POL         0       8         0.0   1565219.14           inf
+IMX         0       6         0.0    593901.10           inf
+WIF         0       6         0.0    818004.29           inf
+ATOM        0       5         0.0   1393268.80           inf
+OP          0       5         0.0   1054942.75           inf
+ALGO        0       4         0.0    591202.28           inf
+ETC         0       4         0.0    776179.14           inf
+IOTA        0       2         0.0    213229.00           inf
+MINA        0       2         0.0    336903.45           inf
+AVNT        0       2         0.0    219697.44           inf
+STABLE      0       2         0.0    249943.01           inf
+POPCAT      0       2         0.0    451139.79           inf
+MERL        0       1         0.0    180950.20           inf
+Squeeze bait today (short fuel over 1.5x long fuel): PNUT, PYTH, POL, IMX, WIF, ATOM, OP, ALGO, ETC, IOTA, MINA, AVNT, STABLE, POPCAT, MERL, ZORA, SNX, COMP, DYDX, BSV, BCH, TIA, PENGU, INJ, FET, SYRUP, FIL, MNT, LDO, MON, TRX, kBONK, PENDLE, kSHIB, ETHFI, CRV, TRUMP, ADA, DOT, JUP, WLD, FARTCOIN, ICP, CC, NIL, BNB, HBAR, ASTER, AVAX, MET, AZTEC, LTC, ONDO, STX, SUI, TAO, ARB, APT, CHIP, LIT, WLFI, NEAR, DASH, MEGA, AAVE, MORPHO, PURR, VVV, PAXG, W, kPEPE, DOGE, XPL, MELANIA, ENA, PUMP, ZRO, EIGEN, SKY, GRASS, UNI, STRK, LINK, SPX
+LIVE_SQUEEZE_GUARD = False

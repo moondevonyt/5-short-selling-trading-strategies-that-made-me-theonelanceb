@@ -42,8 +42,11 @@ def guard_tables(tr, n_sym, liq, regime):
         m = tr["symbol"] == sym
         if not m.any():
             continue
+        if book.empty:
+            continue
         pos = np.searchsorted(book.index.values, et[m].values, side="left") - 1
         ok = (pos >= 0) & (et[m].values <= book.index.values[-1])
+        ok[ok] = ~np.isnan(book["top10_thr"].values[pos[ok]])  # Moon Dev: no threshold yet (short API window) = unknown
         vals = np.full(m.sum(), np.nan)
         vals[ok] = (book["short_liq_1h"].values[pos[ok]] > book["top10_thr"].values[pos[ok]]).astype(float)
         tr.loc[m, "_liq_spike"] = vals

@@ -9,15 +9,25 @@ Sources:
   Hyperliquid 15m (74 coins, about 52 days) and 4h (22 meme coins).
   Funding: local Binance and Hyperliquid files, else the public Binance fapi and
   Hyperliquid info endpoints. Coins that still have no funding are tagged.
-  Liquidations: liq_clean_{BTC,ETH,SOL,XRP}_5m.csv (forced_buy_usd = short liqs).
+  Liquidations: liq_clean_{BTC,ETH,SOL,XRP}_5m.csv (forced_buy_usd = short liqs) when USE_LOCAL is True.
+    With USE_LOCAL = False the same short liquidation spike series is built from the Moon Dev API
+    (https://moondev.com/docs, GET /api/liquidations/30d.json via backtests/moon_dev_api.py). Readers
+    without Moon Dev's drive should set USE_LOCAL = False. The API returns the latest 100 events, so
+    that path covers minutes, not years: see notes.md for the real row count and window it gave.
 """
 from pathlib import Path
+import sys
 import time
 import numpy as np
 import pandas as pd
 import requests
 
+# Moon Dev: True reads the liq_clean files on the drive (years of history, Moon Dev's own runs).
+# False pulls the same series from the Moon Dev API with MOONDEV_API_KEY from .env (the reader's default).
+USE_LOCAL = True
+
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent.parent / "backtests"))
 CACHE = HERE / "data_cache"
 CACHE.mkdir(exist_ok=True)
 MOON = Path("/Users/md/Dropbox/dev/github/moon-dev-trading-bots/data")
@@ -88,8 +98,6 @@ def load_hl_4h():
 
 
 def load_hl_daily():
-    import sys
-    sys.path.insert(0, str(HERE.parent.parent / "backtests"))
     from moon_dev_common import load_hl_daily as first_pass_loader
     return first_pass_loader()
 
@@ -184,16 +192,32 @@ def hl_funding(coin, start, end):
 
 
 # ---------------- liquidations and regime ----------------
-def load_liq_1h(coin):
-    """Moon Dev: 1 hour rolling sum of short liquidations (forced_buy_usd) and its rolling 30 day 90th pct."""
-    f = LIQ_DIR / f"liq_clean_{coin}_5m.csv"
-    if not f.exists():
-        raise FileNotFoundError(f"Moon Dev: missing {f}")
-    d = pd.read_csv(f, usecols=["datetime", "forced_buy_usd", "coinm_suspect"], parse_dates=["datetime"]).set_index("datetime")
-    d = d[~d["coinm_suspect"]]
-    fb = d["forced_buy_usd"].rolling(12, min_periods=1).sum()
+def _spike_series(forced_buy_5m):
+    """Moon Dev: 1 hour rolling sum of short liquidations (5m bins) and its rolling 30 day 90th pct.
+    The threshold needs at least 7 days of bars, so it is NaN before that and the guard treats those bars as unknown."""
+    fb = forced_buy_5m.rolling(12, min_periods=1).sum()
     thr = fb.rolling(12 * 24 * 30, min_periods=12 * 24 * 7).quantile(0.90)
-    return pd.DataFrame({"short_liq_1h": fb, "top10_thr": thr}).dropna()
+    return pd.DataFrame({"short_liq_1h": fb, "top10_thr": thr})
+
+
+def load_liq_1h(coin):
+    """Moon Dev: short liquidation spike series for one coin. Drive file when USE_LOCAL, else the Moon Dev API."""
+    if USE_LOCAL:
+        f = LIQ_DIR / f"liq_clean_{coin}_5m.csv"
+        if not f.exists():
+            raise FileNotFoundError(f"Moon Dev: missing {f}")
+        d = pd.read_csv(f, usecols=["datetime", "forced_buy_usd", "coinm_suspect"], parse_dates=["datetime"]).set_index("datetime")
+        d = d[~d["coinm_suspect"]]
+        return _spike_series(d["forced_buy_usd"]).dropna()
+    from moon_dev_api import recent_liquidations  # Moon Dev API, key from .env, never printed
+    liq = recent_liquidations("30d")
+    short = liq[(liq["coin"] == coin) & (liq["side"] == "short")]
+    fb5 = short.set_index("timestamp")["value_usd"].resample("5min").sum()
+    book = _spike_series(fb5)
+    print(f"Moon Dev: API liq series {coin}: {len(short)} short liq events of {len(liq)} returned, "
+          f"{len(book)} five minute bars, {book.index.min()} to {book.index.max()}, "
+          f"threshold known on {int(book['top10_thr'].notna().sum())} bars")
+    return book
 
 
 def btc_regime():

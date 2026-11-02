@@ -160,9 +160,50 @@ p3 = {
     "replay": replay(p3r["replay"]), "caveats": p3r["caveats"], "failed_parts": p3r["failed_parts"],
 }
 
+# Moon Dev API panel: real rows pulled at build time from https://api.moondev.com (docs https://moondev.com/docs).
+# Key from .env as MOONDEV_API_KEY, never printed, never baked in. If the key or the API is missing this build FAILS, no fake rows.
+import sys
+from datetime import datetime, timezone
+sys.path.insert(0, str(HERE.parent / "backtests"))
+from moon_dev_api import recent_liquidations, near_liq_totals, near_liq_positions
+
+API_COINS = ["BTC", "ETH", "SOL", "XRP"]
+SNIPPET = (HERE.parent / "backtests" / "moon_dev_api.py").read_text().split("# 🌙 Moon Dev API (docs")[1]
+SNIPPET = "# 🌙 Moon Dev API (docs" + SNIPPET.split("\nimport pandas")[0].rstrip() + "\n\n" \
+          "r = requests.get(\"https://api.moondev.com/api/liquidations/1h.json\", headers=H, timeout=60)\n" \
+          "liqs = r.json()[\"liquidations\"]   # latest 100 Hyperliquid liquidations, plus r.json()[\"stats\"] for the window\n" \
+          "near = requests.get(\"https://api.moondev.com/api/positions/all.json\", headers=H, timeout=60).json()[\"symbols\"]\n" \
+          "print(near[\"BTC\"][\"total_short_value\"], \"of BTC shorts sit near liquidation right now\")"
+pulled_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+liq = recent_liquidations("1h")
+st = liq.attrs["stats"]
+tot = near_liq_totals()
+pos = near_liq_positions()
+pos = pos[pos["coin"].isin(API_COINS)]
+by_coin = sorted(st["by_coin"].items(), key=lambda kv: -kv[1]["total_value_usd"])[:10]
+api = {
+    "pulled_at": pulled_at, "docs": "https://moondev.com/docs",
+    "endpoints": ["GET https://api.moondev.com/api/liquidations/1h.json", "GET https://api.moondev.com/api/positions/all.json"],
+    "snippet": SNIPPET,
+    "liq_rows": [[t.strftime("%H:%M:%S"), c, sd, r2(v, 0), p] for t, c, sd, v, p in
+                 zip(liq["timestamp"], liq["coin"], liq["side"], liq["value_usd"], liq["price"])],
+    "liq_window": [liq["timestamp"].min().strftime("%Y-%m-%d %H:%M:%S"), liq["timestamp"].max().strftime("%Y-%m-%d %H:%M:%S")],
+    "liq_stats": {k: st[k] for k in ("total_count", "total_value_usd", "long_value_usd", "short_value_usd", "long_count", "short_count")},
+    "liq_by_coin": [[c, r2(v["long_value_usd"] / 1e6, 2), r2(v["short_value_usd"] / 1e6, 2), v["count"]] for c, v in by_coin],
+    "fuel": [[c, int(tot.loc[c, "longs"]), int(tot.loc[c, "shorts"]), r2(tot.loc[c, "long_value"] / 1e6, 1), r2(tot.loc[c, "short_value"] / 1e6, 1)] for c in API_COINS],
+    "fuel_updated": tot.attrs["updated_at"][:19].replace("T", " ") + " UTC",
+    "nearest": [[c, sd, r2(x["distance_pct"], 2), r2(x["value"] / 1e6, 2), x["leverage"], x["liq_price"]] for c in API_COINS for sd in ("short", "long")
+                for _, x in pos[(pos["coin"] == c) & (pos["side"] == sd)].nsmallest(3, "distance_pct").iterrows()],
+    "where_used": ["alpha/3_bouncy_ball/moon_dev_bouncy_data.py (USE_LOCAL = False builds the liq spike guard from /api/liquidations/30d.json)",
+                   "backtests/bouncy_ball_short.py (live squeeze snapshot from /api/positions/all.json, LIVE_SQUEEZE_GUARD)",
+                   "dashboard/build_dashboard.py (this panel, pulled at build time)"],
+}
+print(f"Moon Dev API panel: {len(api['liq_rows'])} liquidations {api['liq_window'][0]} to {api['liq_window'][1]}, "
+      f"{len(api['nearest'])} nearest positions for {API_COINS}, pulled {pulled_at}")
+
 data = {"video": {"title": "5 Short Selling Trading Strategies That Made Me Millions", "channel": "TheOneLanceB",
-                  "url": "https://www.youtube.com/watch?v=SvHhoD00jZI"}, "p1": p1, "p2": p2, "p3": p3}
+                  "url": "https://www.youtube.com/watch?v=SvHhoD00jZI"}, "p1": p1, "p2": p2, "p3": p3, "api": api}
 blob = json.dumps(data, separators=(",", ":"))
 html = (HERE / "template.html").read_text().replace("__MOON_DEV_DATA__", blob.replace("</", "<\\/"))
 (HERE / "index.html").write_text(html)
-print(f"Moon Dev: wrote index.html, {len(html) / 1e6:.2f} MB, data from 3 real result.json files")
+print(f"Moon Dev: wrote index.html, {len(html) / 1e6:.2f} MB, data from 3 real result.json files plus 2 live Moon Dev API calls")
