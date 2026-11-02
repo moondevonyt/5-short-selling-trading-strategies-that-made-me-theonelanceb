@@ -1,0 +1,18 @@
+{
+  "universe_size": 0,
+  "screened": 0,
+  "hourly_loaded": 0,
+  "survivorship_note": "Universe is today's IWM holdings list, so names that left the index (delisted, acquired, promoted) are missing. Survivorship bias is present.",
+  "notes": [
+    "Borrow cost is a grid of 5, 25, 100 pct a year, not a real borrow feed.",
+    "Yahoo caps hourly bars at 730 days, so the test covers about 2 years.",
+    "Holdout line is 2025-07-01."
+  ],
+  "variants": [],
+  "data_used": [],
+  "failed_parts": [
+    "universe www.ishares.com: status 200, body is HTML not CSV",
+    "universe www.blackrock.com: status 200, body is HTML not CSV",
+    "universe: every IWM holdings source failed and no local copy in data_cache"
+  ]
+}

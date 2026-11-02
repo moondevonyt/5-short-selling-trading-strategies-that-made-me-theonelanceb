@@ -5,3 +5,4 @@ __pycache__/
 data_cache/
 *.csv
 *.html
+!dashboard/index.html
