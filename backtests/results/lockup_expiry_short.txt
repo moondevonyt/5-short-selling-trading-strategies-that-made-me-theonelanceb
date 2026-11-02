@@ -1,0 +1,1885 @@
+===== Moon Dev summary: LOCKUP short, day -2 to day +2 =====
+Trades: 55  Symbols traded: 55 of 55
+Avg trade (net of fees): -0.53%  Median: -0.70%  t-stat: -0.41
+Win rate: 43.6%  Profit factor: 0.86
+Sum of trade returns: -29.4%
+First half of trades (by date) avg: 1.99% | Second half avg: -2.97%
+Equal weight portfolio: return -18.4%  Sharpe -0.40  Max DD -28.3%
+Buy and hold same symbols: return 104.0%  Sharpe 0.50  Max DD -80.1%
+Date range: 2019-03-29 to 2026-02-25
+Avg abnormal short return vs SPY (before fees): -0.39%  median -0.36%  share positive 49%
+Volume days -2..+2 vs days -25..-6: mean 71%  median 15%
+BYND close to close on 2019-10-29: -22.2%
+
+Per event:
+ticker        ipo       day0  stock_pct  spy_pct  abnormal_short_pct  vol_jump_pct
+  LYFT 2019-03-29 2019-09-25      -7.39     0.09                7.48         -0.59
+  PINS 2019-04-18 2019-10-15      -1.73     1.15                2.88        261.33
+    ZM 2019-04-18 2019-10-15      -6.00     1.15                7.15        178.85
+  UBER 2019-05-10 2019-11-06     -12.62    -0.02               12.61        645.26
+  BYND 2019-05-02 2019-10-29     -11.13     1.46               12.60        459.97
+  CRWD 2019-06-12 2019-12-09     -14.53     0.58               15.10        351.19
+  CHWY 2019-06-14 2019-12-11      11.92     0.77              -11.15        216.33
+  FVRR 2019-06-13 2019-12-10       0.66     0.10               -0.56         59.71
+  PTON 2019-09-26 2020-03-24      -1.76     2.88                4.64        -32.93
+  DDOG 2019-09-19 2020-03-17     -11.11    -9.06                2.05          6.15
+   NET 2019-09-13 2020-03-11      -5.88    -4.44                1.45        -21.66
+  BILL 2019-12-12 2020-06-09       6.07    -1.82               -7.89         48.91
+    PD 2019-04-11 2019-10-08      -4.78     0.01                4.80        116.67
+  SNOW 2020-09-16 2021-03-15      -5.11     0.59                5.69         16.21
+     U 2020-09-18 2021-03-17      -4.78    -0.80                3.97        -17.82
+  ABNB 2020-12-10 2021-06-08      -2.52     0.53                3.05        -33.87
+  DASH 2020-12-09 2021-06-07      -8.21     1.28                9.48         -8.98
+    AI 2020-12-09 2021-06-07      -5.13     1.28                6.41        215.07
+  LMND 2020-07-02 2020-12-29       0.04     1.01                0.97         48.36
+  NCNO 2020-07-14 2021-01-11       5.67     0.69               -4.99        165.29
+  FROG 2020-09-16 2021-03-15       1.62     0.59               -1.03        -28.32
+  AFRM 2021-01-13 2021-07-12      -2.59     2.01                4.60         65.74
+  BMBL 2021-02-11 2021-08-10      -1.27     0.34                1.61         98.19
+  CPNG 2021-03-11 2021-09-07      -0.83    -0.58                0.25         25.20
+  OSCR 2021-03-03 2021-08-30      18.86     0.88              -17.98        103.57
+   APP 2021-04-15 2021-10-12       4.75    -0.09               -4.84         18.65
+  PATH 2021-04-21 2021-10-18       2.73     2.74                0.01        -57.10
+   DLO 2021-06-03 2021-11-30      -5.90    -2.51                3.39        -29.08
+  MNDY 2021-06-10 2021-12-07       6.42     1.96               -4.46          4.83
+  DOCS 2021-06-24 2021-12-21       0.63     1.56                0.93          9.10
+  FIGS 2021-05-27 2021-11-23       6.30    -1.55               -7.85          7.71
+  DUOL 2021-07-28 2022-01-24       3.23    -2.87               -6.10         27.05
+  HOOD 2021-07-29 2022-01-25      -6.05    -1.64                4.41         47.66
+  TOST 2021-09-22 2022-03-21       7.15     3.39               -3.76          4.59
+  GTLB 2021-10-14 2022-04-12       2.62    -0.99               -3.61        -37.27
+  RIVN 2021-11-10 2022-05-09     -30.70    -6.24               24.46        174.67
+    NU 2021-12-09 2022-06-07       0.46    -0.74               -1.21        -34.10
+  BROS 2021-09-15 2022-03-14       2.10     1.74               -0.36         -9.62
+  CAVA 2023-06-15 2023-12-12      26.36     3.29              -23.08        321.93
+   ARM 2023-09-14 2024-03-12      -6.84     0.29                7.14        -62.40
+  CART 2023-09-19 2024-03-18       2.78     0.08               -2.70        -49.00
+  KVYO 2023-09-20 2024-03-18       6.55     0.08               -6.47         52.52
+  BIRK 2023-10-11 2024-04-08       2.41    -1.92               -4.33         72.90
+  RDDT 2024-03-21 2024-09-17       8.99     2.02               -6.97          4.33
+  ALAB 2024-03-20 2024-09-16      11.51     1.57               -9.94          3.45
+   TEM 2024-06-14 2024-12-11     -17.76    -0.21               17.55        293.36
+  RBRK 2024-04-25 2024-10-22      -4.84    -0.70                4.13        -50.61
+   VIK 2024-05-01 2024-10-28       1.15     0.23               -0.93         -7.29
+   ULS 2024-04-12 2024-10-09       1.90     0.83               -1.07        -57.40
+  LINE 2024-07-25 2025-01-21      10.10     1.96               -8.14        -22.77
+  CRWV 2025-03-28 2025-09-24       2.59    -0.41               -2.99         14.94
+  CRCL 2025-06-05 2025-12-02      11.51     0.65              -10.86          8.05
+  CHYM 2025-06-12 2025-12-09      10.35    -0.05              -10.40          1.59
+  ETOR 2025-05-13 2025-11-10      23.95     1.23              -22.72        289.86
+   FIG 2025-07-31 2026-01-27       4.92     1.20               -3.72         32.81
+
+===== Moon Dev LOCKUP | LYFT | IPO 2019-03-29 | day 0 2019-09-25 =====
+Start                     2019-03-29 00:00:00
+End                       2019-10-23 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10697613.515554
+Equity Peak [$]               10925420.050817
+Return [%]                           6.976135
+Buy & Hold Return [%]              -44.973814
+Return (Ann.) [%]                   12.434248
+Volatility (Ann.) [%]               11.078289
+Sharpe Ratio                         1.122398
+Sortino Ratio                         5.00643
+Calmar Ratio                         5.963366
+Max. Drawdown [%]                   -2.085106
+Avg. Drawdown [%]                   -2.085106
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       28 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       7.343323
+Worst Trade [%]                      7.343323
+Avg. Trade [%]                       7.343323
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       7.343323
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | PINS | IPO 2019-04-18 | day 0 2019-10-15 =====
+Start                     2019-04-18 00:00:00
+End                       2019-11-12 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10160220.405592
+Equity Peak [$]               10160220.405592
+Return [%]                           1.602204
+Buy & Hold Return [%]              -15.901636
+Return (Ann.) [%]                    2.800958
+Volatility (Ann.) [%]                7.067756
+Sharpe Ratio                         0.396301
+Sortino Ratio                        0.631566
+Calmar Ratio                         0.849766
+Max. Drawdown [%]                   -3.296153
+Avg. Drawdown [%]                   -1.954114
+Max. Drawdown Duration        4 days 00:00:00
+Avg. Drawdown Duration        3 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       1.686531
+Worst Trade [%]                      1.686531
+Avg. Trade [%]                       1.686531
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       1.686531
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | ZM | IPO 2019-04-18 | day 0 2019-10-15 =====
+Start                     2019-04-18 00:00:00
+End                       2019-11-12 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10565687.251086
+Equity Peak [$]               10565687.251086
+Return [%]                           5.656873
+Buy & Hold Return [%]                9.677419
+Return (Ann.) [%]                   10.035455
+Volatility (Ann.) [%]                6.805869
+Sharpe Ratio                          1.47453
+Sortino Ratio                       18.493553
+Calmar Ratio                        24.483606
+Max. Drawdown [%]                   -0.409885
+Avg. Drawdown [%]                   -0.213007
+Max. Drawdown Duration        4 days 00:00:00
+Avg. Drawdown Duration        3 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       5.954606
+Worst Trade [%]                      5.954606
+Avg. Trade [%]                       5.954606
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       5.954606
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | UBER | IPO 2019-05-10 | day 0 2019-11-06 =====
+Start                     2019-05-10 00:00:00
+End                       2019-12-05 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               11195465.39499
+Equity Peak [$]                11358654.17526
+Return [%]                          11.954654
+Buy & Hold Return [%]              -31.080106
+Return (Ann.) [%]                   21.520094
+Volatility (Ann.) [%]               15.646488
+Sharpe Ratio                         1.375395
+Sortino Ratio                       13.589884
+Calmar Ratio                        14.978929
+Max. Drawdown [%]                   -1.436691
+Avg. Drawdown [%]                   -1.436691
+Max. Drawdown Duration       29 days 00:00:00
+Avg. Drawdown Duration       29 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                      12.583878
+Worst Trade [%]                     12.583878
+Avg. Trade [%]                      12.583878
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                      12.583878
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | BYND | IPO 2019-05-02 | day 0 2019-10-29 =====
+Start                     2019-05-02 00:00:00
+End                       2019-11-26 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]              11053493.694483
+Equity Peak [$]               11842385.694483
+Return [%]                          10.534937
+Buy & Hold Return [%]               20.806079
+Return (Ann.) [%]                   18.872514
+Volatility (Ann.) [%]               38.176398
+Sharpe Ratio                          0.49435
+Sortino Ratio                        2.036971
+Calmar Ratio                         2.833031
+Max. Drawdown [%]                   -6.661597
+Avg. Drawdown [%]                   -5.459906
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       16 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                      11.092943
+Worst Trade [%]                     11.092943
+Avg. Trade [%]                      11.092943
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                      11.092943
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                      Size  EntryBa...
+dtype: object
+
+===== Moon Dev LOCKUP | CRWD | IPO 2019-06-12 | day 0 2019-12-09 =====
+Start                     2019-06-12 00:00:00
+End                       2020-01-08 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]              11376435.316297
+Equity Peak [$]               11376435.316297
+Return [%]                          13.764353
+Buy & Hold Return [%]               -4.034483
+Return (Ann.) [%]                   24.930431
+Volatility (Ann.) [%]               10.201676
+Sharpe Ratio                         2.443758
+Sortino Ratio                             inf
+Calmar Ratio                              NaN
+Max. Drawdown [%]                        -0.0
+Avg. Drawdown [%]                         NaN
+Max. Drawdown Duration                    NaN
+Avg. Drawdown Duration                    NaN
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                      14.488796
+Worst Trade [%]                     14.488796
+Avg. Trade [%]                      14.488796
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                      14.488796
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | CHWY | IPO 2019-06-14 | day 0 2019-12-11 =====
+Start                     2019-06-14 00:00:00
+End                       2020-01-10 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               8862564.545879
+Equity Peak [$]               10427223.634506
+Return [%]                         -11.374355
+Buy & Hold Return [%]              -16.461852
+Return (Ann.) [%]                  -18.813072
+Volatility (Ann.) [%]               10.123608
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -15.00552
+Avg. Drawdown [%]                   -15.00552
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -11.973011
+Worst Trade [%]                    -11.973011
+Avg. Trade [%]                     -11.973011
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -11.973011
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | FVRR | IPO 2019-06-13 | day 0 2019-12-10 =====
+Start                     2019-06-13 00:00:00
+End                       2020-01-09 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               9933165.893148
+Equity Peak [$]               10473840.674055
+Return [%]                          -0.668341
+Buy & Hold Return [%]              -38.872184
+Return (Ann.) [%]                   -1.150775
+Volatility (Ann.) [%]                8.753353
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -5.972732
+Avg. Drawdown [%]                   -5.972732
+Max. Drawdown Duration       31 days 00:00:00
+Avg. Drawdown Duration       31 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -0.703518
+Worst Trade [%]                     -0.703518
+Avg. Trade [%]                      -0.703518
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -0.703518
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | PTON | IPO 2019-09-26 | day 0 2020-03-24 =====
+Start                     2019-09-26 00:00:00
+End                       2020-04-22 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]              10162998.519283
+Equity Peak [$]               10752263.279236
+Return [%]                           1.629985
+Buy & Hold Return [%]               21.040373
+Return (Ann.) [%]                    2.869886
+Volatility (Ann.) [%]               12.091861
+Sharpe Ratio                          0.23734
+Sortino Ratio                        0.474638
+Calmar Ratio                         0.520309
+Max. Drawdown [%]                   -5.515737
+Avg. Drawdown [%]                   -5.515737
+Max. Drawdown Duration       33 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       1.715774
+Worst Trade [%]                      1.715774
+Avg. Trade [%]                       1.715774
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       1.715774
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | DDOG | IPO 2019-09-19 | day 0 2020-03-17 =====
+Start                     2019-09-19 00:00:00
+End                       2020-04-15 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]                11051751.0866
+Equity Peak [$]               11854332.608306
+Return [%]                          10.517511
+Buy & Hold Return [%]                3.169114
+Return (Ann.) [%]                   19.125412
+Volatility (Ann.) [%]               33.414896
+Sharpe Ratio                         0.572362
+Sortino Ratio                        1.253691
+Calmar Ratio                         1.664266
+Max. Drawdown [%]                  -11.491799
+Avg. Drawdown [%]                  -11.491799
+Max. Drawdown Duration       30 days 00:00:00
+Avg. Drawdown Duration       30 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                      11.071093
+Worst Trade [%]                     11.071093
+Avg. Trade [%]                      11.071093
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                      11.071093
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | NET | IPO 2019-09-13 | day 0 2020-03-11 =====
+Start                     2019-09-13 00:00:00
+End                       2020-04-08 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               10554798.07625
+Equity Peak [$]               10930496.544496
+Return [%]                           5.547981
+Buy & Hold Return [%]                26.88889
+Return (Ann.) [%]                    9.910043
+Volatility (Ann.) [%]               11.667122
+Sharpe Ratio                         0.849399
+Sortino Ratio                         1.96494
+Calmar Ratio                         2.883208
+Max. Drawdown [%]                   -3.437158
+Avg. Drawdown [%]                   -2.527897
+Max. Drawdown Duration       27 days 00:00:00
+Avg. Drawdown Duration       15 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       5.839981
+Worst Trade [%]                      5.839981
+Avg. Trade [%]                       5.839981
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       5.839981
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | BILL | IPO 2019-12-12 | day 0 2020-06-09 =====
+Start                     2019-12-12 00:00:00
+End                       2020-07-08 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.496503
+Equity Final [$]                 9418679.3375
+Equity Peak [$]               10280850.380324
+Return [%]                          -5.813207
+Buy & Hold Return [%]              154.816899
+Return (Ann.) [%]                  -10.016224
+Volatility (Ann.) [%]                9.444174
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -9.376679
+Avg. Drawdown [%]                   -4.818346
+Max. Drawdown Duration       30 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -6.119182
+Worst Trade [%]                     -6.119182
+Avg. Trade [%]                      -6.119182
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -6.119182
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | PD | IPO 2019-04-11 | day 0 2019-10-08 =====
+Start                     2019-04-11 00:00:00
+End                       2019-11-05 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10450423.455234
+Equity Peak [$]               10477773.829151
+Return [%]                           4.504235
+Buy & Hold Return [%]              -39.294119
+Return (Ann.) [%]                    7.957639
+Volatility (Ann.) [%]                5.015181
+Sharpe Ratio                          1.58671
+Sortino Ratio                       13.168263
+Calmar Ratio                        17.419974
+Max. Drawdown [%]                   -0.456811
+Avg. Drawdown [%]                   -0.456811
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       28 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       4.741306
+Worst Trade [%]                      4.741306
+Avg. Trade [%]                       4.741306
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       4.741306
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | SNOW | IPO 2020-09-16 | day 0 2021-03-15 =====
+Start                     2020-09-16 00:00:00
+End                       2021-04-13 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               10481039.15275
+Equity Peak [$]                10481039.15275
+Return [%]                           4.810392
+Buy & Hold Return [%]               -6.241874
+Return (Ann.) [%]                    8.569441
+Volatility (Ann.) [%]                9.638743
+Sharpe Ratio                         0.889062
+Sortino Ratio                        1.759567
+Calmar Ratio                         2.466708
+Max. Drawdown [%]                    -3.47404
+Avg. Drawdown [%]                   -2.326628
+Max. Drawdown Duration        5 days 00:00:00
+Avg. Drawdown Duration        4 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       5.063662
+Worst Trade [%]                      5.063662
+Avg. Trade [%]                       5.063662
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       5.063662
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | U | IPO 2020-09-18 | day 0 2021-03-17 =====
+Start                     2020-09-18 00:00:00
+End                       2021-04-15 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]              10449618.880464
+Equity Peak [$]               10469160.488893
+Return [%]                           4.496189
+Buy & Hold Return [%]               49.114851
+Return (Ann.) [%]                    8.000506
+Volatility (Ann.) [%]               10.187269
+Sharpe Ratio                         0.785343
+Sortino Ratio                        2.487356
+Calmar Ratio                         3.313669
+Max. Drawdown [%]                   -2.414395
+Avg. Drawdown [%]                   -1.300527
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       4.732831
+Worst Trade [%]                      4.732831
+Avg. Trade [%]                       4.732831
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       4.732831
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | ABNB | IPO 2020-12-10 | day 0 2021-06-08 =====
+Start                     2020-12-10 00:00:00
+End                       2021-07-07 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.496503
+Equity Final [$]              10235560.276701
+Equity Peak [$]               10235560.276701
+Return [%]                           2.355603
+Buy & Hold Return [%]               -0.684131
+Return (Ann.) [%]                     4.18833
+Volatility (Ann.) [%]                6.013284
+Sharpe Ratio                         0.696513
+Sortino Ratio                        0.971502
+Calmar Ratio                         1.294196
+Max. Drawdown [%]                   -3.236242
+Avg. Drawdown [%]                   -3.236242
+Max. Drawdown Duration        6 days 00:00:00
+Avg. Drawdown Duration        6 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       2.479607
+Worst Trade [%]                      2.479607
+Avg. Trade [%]                       2.479607
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       2.479607
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | DASH | IPO 2020-12-09 | day 0 2021-06-07 =====
+Start                     2020-12-09 00:00:00
+End                       2021-07-06 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.496503
+Equity Final [$]              10775641.692219
+Equity Peak [$]               10828270.448323
+Return [%]                           7.756417
+Buy & Hold Return [%]               -3.556536
+Return (Ann.) [%]                   14.070286
+Volatility (Ann.) [%]               12.459576
+Sharpe Ratio                         1.129275
+Sortino Ratio                        3.736411
+Calmar Ratio                         5.052741
+Max. Drawdown [%]                   -2.784684
+Avg. Drawdown [%]                   -1.635358
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       8.164694
+Worst Trade [%]                      8.164694
+Avg. Trade [%]                       8.164694
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       8.164694
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | AI | IPO 2020-12-09 | day 0 2021-06-07 =====
+Start                     2020-12-09 00:00:00
+End                       2021-07-06 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.496503
+Equity Final [$]              10483513.120623
+Equity Peak [$]               10986678.240527
+Return [%]                           4.835131
+Buy & Hold Return [%]              -35.138931
+Return (Ann.) [%]                    8.677073
+Volatility (Ann.) [%]               11.521824
+Sharpe Ratio                         0.753099
+Sortino Ratio                        1.888676
+Calmar Ratio                         1.894651
+Max. Drawdown [%]                   -4.579775
+Avg. Drawdown [%]                   -2.492972
+Max. Drawdown Duration       29 days 00:00:00
+Avg. Drawdown Duration       16 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                        5.08964
+Worst Trade [%]                       5.08964
+Avg. Trade [%]                        5.08964
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                        5.08964
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | LMND | IPO 2020-07-02 | day 0 2020-12-29 =====
+Start                     2020-07-02 00:00:00
+End                       2021-01-28 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9992053.257225
+Equity Peak [$]               11597870.575585
+Return [%]                          -0.079467
+Buy & Hold Return [%]              115.055462
+Return (Ann.) [%]                   -0.138068
+Volatility (Ann.) [%]               22.088423
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -14.060946
+Avg. Drawdown [%]                  -14.060946
+Max. Drawdown Duration       31 days 00:00:00
+Avg. Drawdown Duration       31 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                       -0.08365
+Worst Trade [%]                      -0.08365
+Avg. Trade [%]                       -0.08365
+Max. Trade Duration           7 days 00:00:00
+Avg. Trade Duration           7 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                       -0.08365
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | NCNO | IPO 2020-07-14 | day 0 2021-01-11 =====
+Start                     2020-07-14 00:00:00
+End                       2021-02-09 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               9456426.862834
+Equity Peak [$]                    10000000.0
+Return [%]                          -5.435731
+Buy & Hold Return [%]              -13.746039
+Return (Ann.) [%]                   -9.196152
+Volatility (Ann.) [%]                7.403734
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -7.340779
+Avg. Drawdown [%]                   -7.340779
+Max. Drawdown Duration       34 days 00:00:00
+Avg. Drawdown Duration       34 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -5.721854
+Worst Trade [%]                     -5.721854
+Avg. Trade [%]                      -5.721854
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -5.721854
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | FROG | IPO 2020-09-16 | day 0 2021-03-15 =====
+Start                     2020-09-16 00:00:00
+End                       2021-04-13 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               9841751.489949
+Equity Peak [$]                    10000000.0
+Return [%]                          -1.582485
+Buy & Hold Return [%]               -19.72527
+Return (Ann.) [%]                   -2.752893
+Volatility (Ann.) [%]                7.781053
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -7.141462
+Avg. Drawdown [%]                   -7.141462
+Max. Drawdown Duration       34 days 00:00:00
+Avg. Drawdown Duration       34 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                       -1.66578
+Worst Trade [%]                      -1.66578
+Avg. Trade [%]                       -1.66578
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                       -1.66578
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | AFRM | IPO 2021-01-13 | day 0 2021-07-12 =====
+Start                     2021-01-13 00:00:00
+End                       2021-08-09 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]              10241430.225044
+Equity Peak [$]               10476285.430427
+Return [%]                           2.414302
+Buy & Hold Return [%]              -31.634931
+Return (Ann.) [%]                    4.263204
+Volatility (Ann.) [%]               19.300111
+Sharpe Ratio                          0.22089
+Sortino Ratio                        0.452054
+Calmar Ratio                         0.460839
+Max. Drawdown [%]                   -9.250955
+Avg. Drawdown [%]                   -5.746367
+Max. Drawdown Duration       27 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       2.541371
+Worst Trade [%]                      2.541371
+Avg. Trade [%]                       2.541371
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       2.541371
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | BMBL | IPO 2021-02-11 | day 0 2021-08-10 =====
+Start                     2021-02-11 00:00:00
+End                       2021-09-08 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10116480.492566
+Equity Peak [$]               10268912.863187
+Return [%]                           1.164805
+Buy & Hold Return [%]              -20.580284
+Return (Ann.) [%]                    2.033042
+Volatility (Ann.) [%]                5.578254
+Sharpe Ratio                         0.364458
+Sortino Ratio                        0.603939
+Calmar Ratio                         1.014034
+Max. Drawdown [%]                   -2.004905
+Avg. Drawdown [%]                   -1.785999
+Max. Drawdown Duration       29 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       1.226114
+Worst Trade [%]                      1.226114
+Avg. Trade [%]                       1.226114
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       1.226114
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | CPNG | IPO 2021-03-11 | day 0 2021-09-07 =====
+Start                     2021-03-11 00:00:00
+End                       2021-10-05 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10074470.339751
+Equity Peak [$]               10519698.429473
+Return [%]                           0.744703
+Buy & Hold Return [%]               -45.11675
+Return (Ann.) [%]                    1.297797
+Volatility (Ann.) [%]               13.896269
+Sharpe Ratio                         0.093392
+Sortino Ratio                        0.117497
+Calmar Ratio                         0.155434
+Max. Drawdown [%]                   -8.349482
+Avg. Drawdown [%]                   -8.349482
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       0.783901
+Worst Trade [%]                      0.783901
+Avg. Trade [%]                       0.783901
+Max. Trade Duration           7 days 00:00:00
+Avg. Trade Duration           7 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       0.783901
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | OSCR | IPO 2021-03-03 | day 0 2021-08-30 =====
+Start                     2021-03-03 00:00:00
+End                       2021-09-28 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               8202873.446061
+Equity Peak [$]                    10000000.0
+Return [%]                         -17.971266
+Buy & Hold Return [%]              -50.431033
+Return (Ann.) [%]                  -28.959996
+Volatility (Ann.) [%]               10.001258
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -17.971266
+Avg. Drawdown [%]                  -17.971266
+Max. Drawdown Duration       34 days 00:00:00
+Avg. Drawdown Duration       34 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -18.917148
+Worst Trade [%]                    -18.917148
+Avg. Trade [%]                     -18.917148
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -18.917148
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | APP | IPO 2021-04-15 | day 0 2021-10-12 =====
+Start                     2021-04-15 00:00:00
+End                       2021-11-09 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               9543996.062556
+Equity Peak [$]                    10000000.0
+Return [%]                          -4.560039
+Buy & Hold Return [%]                 58.8497
+Return (Ann.) [%]                   -7.739913
+Volatility (Ann.) [%]                 3.21059
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -4.560039
+Avg. Drawdown [%]                   -4.560039
+Max. Drawdown Duration       33 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -4.800053
+Worst Trade [%]                     -4.800053
+Avg. Trade [%]                      -4.800053
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -4.800053
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | PATH | IPO 2021-04-21 | day 0 2021-10-18 =====
+Start                     2021-04-21 00:00:00
+End                       2021-11-15 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               9736311.195226
+Equity Peak [$]               10102871.621557
+Return [%]                          -2.636888
+Buy & Hold Return [%]              -22.405796
+Return (Ann.) [%]                   -4.507669
+Volatility (Ann.) [%]                5.481664
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                    -3.62828
+Avg. Drawdown [%]                   -2.531048
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       15 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -2.775674
+Worst Trade [%]                     -2.775674
+Avg. Trade [%]                      -2.775674
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.775674
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | DLO | IPO 2021-06-03 | day 0 2021-11-30 =====
+Start                     2021-06-03 00:00:00
+End                       2021-12-29 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               10556266.45996
+Equity Peak [$]                10556266.45996
+Return [%]                           5.562665
+Buy & Hold Return [%]                8.150664
+Return (Ann.) [%]                    9.794225
+Volatility (Ann.) [%]                8.165754
+Sharpe Ratio                         1.199427
+Sortino Ratio                        2.745188
+Calmar Ratio                         3.618998
+Max. Drawdown [%]                   -2.706336
+Avg. Drawdown [%]                   -2.706336
+Max. Drawdown Duration        4 days 00:00:00
+Avg. Drawdown Duration        4 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       5.855439
+Worst Trade [%]                      5.855439
+Avg. Trade [%]                       5.855439
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       5.855439
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | MNDY | IPO 2021-06-10 | day 0 2021-12-07 =====
+Start                     2021-06-10 00:00:00
+End                       2022-01-05 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]                9385762.28287
+Equity Peak [$]               10891621.818026
+Return [%]                          -6.142377
+Buy & Hold Return [%]               39.207249
+Return (Ann.) [%]                  -10.364161
+Volatility (Ann.) [%]               15.765275
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -14.255761
+Avg. Drawdown [%]                  -14.255761
+Max. Drawdown Duration       33 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -6.465833
+Worst Trade [%]                     -6.465833
+Avg. Trade [%]                      -6.465833
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -6.465833
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | DOCS | IPO 2021-06-24 | day 0 2021-12-21 =====
+Start                     2021-06-24 00:00:00
+End                       2022-01-20 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               9935483.315105
+Equity Peak [$]               10096770.100917
+Return [%]                          -0.645167
+Buy & Hold Return [%]              -16.207547
+Return (Ann.) [%]                   -1.110966
+Volatility (Ann.) [%]                5.592273
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -2.316329
+Avg. Drawdown [%]                   -1.956869
+Max. Drawdown Duration       31 days 00:00:00
+Avg. Drawdown Duration       18 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -0.679126
+Worst Trade [%]                     -0.679126
+Avg. Trade [%]                      -0.679126
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -0.679126
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | FIGS | IPO 2021-05-27 | day 0 2021-11-23 =====
+Start                     2021-05-27 00:00:00
+End                       2021-12-22 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               9397077.127937
+Equity Peak [$]                10026580.61045
+Return [%]                          -6.029229
+Buy & Hold Return [%]              -15.023318
+Return (Ann.) [%]                  -10.177566
+Volatility (Ann.) [%]               13.095694
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -6.955415
+Avg. Drawdown [%]                   -6.662036
+Max. Drawdown Duration       29 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -6.346565
+Worst Trade [%]                     -6.346565
+Avg. Trade [%]                      -6.346565
+Max. Trade Duration           7 days 00:00:00
+Avg. Trade Duration           7 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -6.346565
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | DUOL | IPO 2021-07-28 | day 0 2022-01-24 =====
+Start                     2021-07-28 00:00:00
+End                       2022-02-22 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9689169.301135
+Equity Peak [$]                10408350.89165
+Return [%]                          -3.108307
+Buy & Hold Return [%]              -36.546125
+Return (Ann.) [%]                     -5.3399
+Volatility (Ann.) [%]                8.141267
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -6.909659
+Avg. Drawdown [%]                   -3.651237
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -3.271918
+Worst Trade [%]                     -3.271918
+Avg. Trade [%]                      -3.271918
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -3.271918
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | HOOD | IPO 2021-07-29 | day 0 2022-01-25 =====
+Start                     2021-07-29 00:00:00
+End                       2022-02-23 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10570777.675078
+Equity Peak [$]                10743646.65433
+Return [%]                           5.707777
+Buy & Hold Return [%]              -68.811029
+Return (Ann.) [%]                   10.127606
+Volatility (Ann.) [%]                 8.58633
+Sharpe Ratio                         1.179503
+Sortino Ratio                        4.091343
+Calmar Ratio                         6.294213
+Max. Drawdown [%]                   -1.609034
+Avg. Drawdown [%]                   -1.282122
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       17 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                        6.00819
+Worst Trade [%]                       6.00819
+Avg. Trade [%]                        6.00819
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                        6.00819
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | TOST | IPO 2021-09-22 | day 0 2022-03-21 =====
+Start                     2021-09-22 00:00:00
+End                       2022-04-19 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]                9316121.90022
+Equity Peak [$]                    10000000.0
+Return [%]                          -6.838781
+Buy & Hold Return [%]              -67.685168
+Return (Ann.) [%]                  -11.583599
+Volatility (Ann.) [%]                5.307313
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -7.650244
+Avg. Drawdown [%]                   -7.650244
+Max. Drawdown Duration       34 days 00:00:00
+Avg. Drawdown Duration       34 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -7.198721
+Worst Trade [%]                     -7.198721
+Avg. Trade [%]                      -7.198721
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -7.198721
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | GTLB | IPO 2021-10-14 | day 0 2022-04-12 =====
+Start                     2021-10-14 00:00:00
+End                       2022-05-11 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9746729.134447
+Equity Peak [$]               10553548.613352
+Return [%]                          -2.532709
+Buy & Hold Return [%]               -66.81105
+Return (Ann.) [%]                   -4.360448
+Volatility (Ann.) [%]               10.441962
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -8.248563
+Avg. Drawdown [%]                   -8.248563
+Max. Drawdown Duration       30 days 00:00:00
+Avg. Drawdown Duration       30 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -2.666015
+Worst Trade [%]                     -2.666015
+Avg. Trade [%]                      -2.666015
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.666015
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | RIVN | IPO 2021-11-10 | day 0 2022-05-09 =====
+Start                     2021-11-10 00:00:00
+End                       2022-06-07 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]              12913140.608669
+Equity Peak [$]               12949087.108669
+Return [%]                          29.131406
+Buy & Hold Return [%]              -70.495385
+Return (Ann.) [%]                   56.424865
+Volatility (Ann.) [%]               36.741215
+Sharpe Ratio                         1.535738
+Sortino Ratio                      165.768601
+Calmar Ratio                       203.260539
+Max. Drawdown [%]                   -0.277599
+Avg. Drawdown [%]                   -0.277599
+Max. Drawdown Duration       29 days 00:00:00
+Avg. Drawdown Duration       29 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                      30.664711
+Worst Trade [%]                     30.664711
+Avg. Trade [%]                      30.664711
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                      30.664711
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | NU | IPO 2021-12-09 | day 0 2022-06-07 =====
+Start                     2021-12-09 00:00:00
+End                       2022-07-07 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               9951619.758781
+Equity Peak [$]               10039826.394661
+Return [%]                          -0.483802
+Buy & Hold Return [%]              -59.632138
+Return (Ann.) [%]                   -0.845118
+Volatility (Ann.) [%]                8.554003
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                    -4.23259
+Avg. Drawdown [%]                   -2.555579
+Max. Drawdown Duration       31 days 00:00:00
+Avg. Drawdown Duration       18 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -0.509266
+Worst Trade [%]                     -0.509266
+Avg. Trade [%]                      -0.509266
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -0.509266
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                         Size  Entr...
+dtype: object
+
+===== Moon Dev LOCKUP | BROS | IPO 2021-09-15 | day 0 2022-03-14 =====
+Start                     2021-09-15 00:00:00
+End                       2022-04-11 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9796037.712839
+Equity Peak [$]               10229969.423006
+Return [%]                          -2.039623
+Buy & Hold Return [%]                42.61178
+Return (Ann.) [%]                      -3.518
+Volatility (Ann.) [%]               14.618305
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -6.705345
+Avg. Drawdown [%]                   -5.473557
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       15 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -2.146978
+Worst Trade [%]                     -2.146978
+Avg. Trade [%]                      -2.146978
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.146978
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | CAVA | IPO 2023-06-15 | day 0 2023-12-12 =====
+Start                     2023-06-15 00:00:00
+End                       2024-01-11 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               7490053.261467
+Equity Peak [$]               10214608.677788
+Return [%]                         -25.099467
+Buy & Hold Return [%]               -1.918685
+Return (Ann.) [%]                  -39.484946
+Volatility (Ann.) [%]               16.373869
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -26.673126
+Avg. Drawdown [%]                  -26.673126
+Max. Drawdown Duration       34 days 00:00:00
+Avg. Drawdown Duration       34 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -26.420528
+Worst Trade [%]                    -26.420528
+Avg. Trade [%]                     -26.420528
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -26.420528
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | ARM | IPO 2023-09-14 | day 0 2024-03-12 =====
+Start                     2023-09-14 00:00:00
+End                       2024-04-10 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]              10646166.211118
+Equity Peak [$]               10876815.508679
+Return [%]                           6.461662
+Buy & Hold Return [%]               96.854851
+Return (Ann.) [%]                   11.580467
+Volatility (Ann.) [%]                 9.93746
+Sharpe Ratio                         1.165335
+Sortino Ratio                        4.231533
+Calmar Ratio                         4.086744
+Max. Drawdown [%]                   -2.833666
+Avg. Drawdown [%]                   -2.833666
+Max. Drawdown Duration       30 days 00:00:00
+Avg. Drawdown Duration       30 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       6.801784
+Worst Trade [%]                      6.801784
+Avg. Trade [%]                       6.801784
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       6.801784
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | CART | IPO 2023-09-19 | day 0 2024-03-18 =====
+Start                     2023-09-19 00:00:00
+End                       2024-04-16 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]                 9731716.0866
+Equity Peak [$]               10064364.463473
+Return [%]                          -2.682839
+Buy & Hold Return [%]                9.643917
+Return (Ann.) [%]                   -4.616326
+Volatility (Ann.) [%]                4.974702
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -3.961006
+Avg. Drawdown [%]                   -3.961006
+Max. Drawdown Duration       33 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -2.824049
+Worst Trade [%]                     -2.824049
+Avg. Trade [%]                      -2.824049
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.824049
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | KVYO | IPO 2023-09-20 | day 0 2024-03-18 =====
+Start                     2023-09-20 00:00:00
+End                       2024-04-16 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               9373443.358728
+Equity Peak [$]                10328121.06054
+Return [%]                          -6.265566
+Buy & Hold Return [%]              -27.258849
+Return (Ann.) [%]                  -10.705743
+Volatility (Ann.) [%]                8.101858
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -9.243479
+Avg. Drawdown [%]                   -9.243479
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -6.595347
+Worst Trade [%]                     -6.595347
+Avg. Trade [%]                      -6.595347
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -6.595347
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | BIRK | IPO 2023-10-11 | day 0 2024-04-08 =====
+Start                     2023-10-11 00:00:00
+End                       2024-05-06 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.496503
+Equity Final [$]               9766309.794519
+Equity Peak [$]               10325641.101098
+Return [%]                          -2.336902
+Buy & Hold Return [%]               11.691544
+Return (Ann.) [%]                   -4.081431
+Volatility (Ann.) [%]                7.608647
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -6.813466
+Avg. Drawdown [%]                   -6.813466
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -2.459898
+Worst Trade [%]                     -2.459898
+Avg. Trade [%]                      -2.459898
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.459898
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | RDDT | IPO 2024-03-21 | day 0 2024-09-17 =====
+Start                     2024-03-21 00:00:00
+End                       2024-10-15 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]                9141409.27959
+Equity Peak [$]               10081792.214782
+Return [%]                          -8.585907
+Buy & Hold Return [%]               49.028549
+Return (Ann.) [%]                  -14.538007
+Volatility (Ann.) [%]                6.518262
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -9.327537
+Avg. Drawdown [%]                   -9.327537
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -9.037826
+Worst Trade [%]                     -9.037826
+Avg. Trade [%]                      -9.037826
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -9.037826
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | ALAB | IPO 2024-03-20 | day 0 2024-09-16 =====
+Start                     2024-03-20 00:00:00
+End                       2024-10-14 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               8901790.149093
+Equity Peak [$]               10093517.623253
+Return [%]                         -10.982099
+Buy & Hold Return [%]                4.723521
+Return (Ann.) [%]                  -18.419687
+Volatility (Ann.) [%]                8.329529
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -11.80686
+Avg. Drawdown [%]                   -11.80686
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -11.560127
+Worst Trade [%]                    -11.560127
+Avg. Trade [%]                     -11.560127
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -11.560127
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | TEM | IPO 2024-06-14 | day 0 2024-12-11 =====
+Start                     2024-06-14 00:00:00
+End                       2025-01-13 00:00:00
+Duration                    213 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              11683668.180119
+Equity Peak [$]               11685528.887753
+Return [%]                          16.836682
+Buy & Hold Return [%]              -19.652174
+Return (Ann.) [%]                   31.053316
+Volatility (Ann.) [%]               16.497885
+Sharpe Ratio                          1.88226
+Sortino Ratio                     1474.209451
+Calmar Ratio                      1950.195794
+Max. Drawdown [%]                   -0.015923
+Avg. Drawdown [%]                   -0.015923
+Max. Drawdown Duration       32 days 00:00:00
+Avg. Drawdown Duration       32 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                      17.722912
+Worst Trade [%]                     17.722912
+Avg. Trade [%]                      17.722912
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                      17.722912
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | RBRK | IPO 2024-04-25 | day 0 2024-10-22 =====
+Start                     2024-04-25 00:00:00
+End                       2024-11-19 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]              10455259.279981
+Equity Peak [$]               10479194.027792
+Return [%]                           4.552593
+Buy & Hold Return [%]               19.486484
+Return (Ann.) [%]                    8.044475
+Volatility (Ann.) [%]                4.672916
+Sharpe Ratio                         1.721511
+Sortino Ratio                         19.6193
+Calmar Ratio                        35.220597
+Max. Drawdown [%]                   -0.228403
+Avg. Drawdown [%]                   -0.218966
+Max. Drawdown Duration       27 days 00:00:00
+Avg. Drawdown Duration       15 days 00:00:00
+# Trades                                    1
+Win Rate [%]                            100.0
+Best Trade [%]                       4.792206
+Worst Trade [%]                      4.792206
+Avg. Trade [%]                       4.792206
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             NaN
+Expectancy [%]                       4.792206
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | VIK | IPO 2024-05-01 | day 0 2024-10-28 =====
+Start                     2024-05-01 00:00:00
+End                       2024-11-25 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9886058.346622
+Equity Peak [$]               10063958.505066
+Return [%]                          -1.139417
+Buy & Hold Return [%]               75.402292
+Return (Ann.) [%]                   -1.971894
+Volatility (Ann.) [%]                3.209943
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -2.348851
+Avg. Drawdown [%]                   -2.348851
+Max. Drawdown Duration       28 days 00:00:00
+Avg. Drawdown Duration       28 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -1.199388
+Worst Trade [%]                     -1.199388
+Avg. Trade [%]                      -1.199388
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -1.199388
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | ULS | IPO 2024-04-12 | day 0 2024-10-09 =====
+Start                     2024-04-12 00:00:00
+End                       2024-11-06 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9815441.026517
+Equity Peak [$]                10087742.28836
+Return [%]                           -1.84559
+Buy & Hold Return [%]               45.045039
+Return (Ann.) [%]                    -3.18563
+Volatility (Ann.) [%]                2.560442
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -2.941332
+Avg. Drawdown [%]                   -2.941332
+Max. Drawdown Duration       30 days 00:00:00
+Avg. Drawdown Duration       30 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -1.942734
+Worst Trade [%]                     -1.942734
+Avg. Trade [%]                      -1.942734
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -1.942734
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | LINE | IPO 2024-07-25 | day 0 2025-01-21 =====
+Start                     2024-07-25 00:00:00
+End                       2025-02-19 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.496503
+Equity Final [$]               9036052.638071
+Equity Peak [$]                    10000000.0
+Return [%]                          -9.639474
+Buy & Hold Return [%]              -31.400716
+Return (Ann.) [%]                  -16.358061
+Volatility (Ann.) [%]                 7.18868
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -9.883761
+Avg. Drawdown [%]                   -9.883761
+Max. Drawdown Duration       35 days 00:00:00
+Avg. Drawdown Duration       35 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -10.146861
+Worst Trade [%]                    -10.146861
+Avg. Trade [%]                     -10.146861
+Max. Trade Duration           7 days 00:00:00
+Avg. Trade Duration           7 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -10.146861
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | CRWV | IPO 2025-03-28 | day 0 2025-09-24 =====
+Start                     2025-03-28 00:00:00
+End                       2025-10-22 00:00:00
+Duration                    208 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               9749904.030582
+Equity Peak [$]                    10000000.0
+Return [%]                           -2.50096
+Buy & Hold Return [%]              203.824997
+Return (Ann.) [%]                   -4.335546
+Volatility (Ann.) [%]               11.572185
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -6.681786
+Avg. Drawdown [%]                   -6.681786
+Max. Drawdown Duration       33 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -2.632598
+Worst Trade [%]                     -2.632598
+Avg. Trade [%]                      -2.632598
+Max. Trade Duration           4 days 00:00:00
+Avg. Trade Duration           4 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -2.632598
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                       Size  EntryB...
+dtype: object
+
+===== Moon Dev LOCKUP | CRCL | IPO 2025-06-05 | day 0 2025-12-02 =====
+Start                     2025-06-05 00:00:00
+End                       2025-12-31 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               8901551.005698
+Equity Peak [$]                    10000000.0
+Return [%]                          -10.98449
+Buy & Hold Return [%]               -4.721855
+Return (Ann.) [%]                  -18.308881
+Volatility (Ann.) [%]               15.847008
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -13.899753
+Avg. Drawdown [%]                  -13.899753
+Max. Drawdown Duration       35 days 00:00:00
+Avg. Drawdown Duration       35 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -11.562627
+Worst Trade [%]                    -11.562627
+Avg. Trade [%]                     -11.562627
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -11.562627
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | CHYM | IPO 2025-06-12 | day 0 2025-12-09 =====
+Start                     2025-06-12 00:00:00
+End                       2026-01-08 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.448276
+Equity Final [$]               9012109.665335
+Equity Peak [$]                    10000000.0
+Return [%]                          -9.878903
+Buy & Hold Return [%]              -25.357046
+Return (Ann.) [%]                  -16.537476
+Volatility (Ann.) [%]               10.396246
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -10.958481
+Avg. Drawdown [%]                  -10.958481
+Max. Drawdown Duration       35 days 00:00:00
+Avg. Drawdown Duration       35 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -10.398855
+Worst Trade [%]                    -10.398855
+Avg. Trade [%]                     -10.398855
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -10.398855
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | ETOR | IPO 2025-05-13 | day 0 2025-11-10 =====
+Start                     2025-05-13 00:00:00
+End                       2025-12-09 00:00:00
+Duration                    210 days 00:00:00
+Exposure Time [%]                    3.424658
+Equity Final [$]               7719548.380217
+Equity Peak [$]               10276800.523833
+Return [%]                         -22.804516
+Buy & Hold Return [%]              -19.038464
+Return (Ann.) [%]                  -36.029385
+Volatility (Ann.) [%]                12.69305
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                  -24.883738
+Avg. Drawdown [%]                  -24.883738
+Max. Drawdown Duration       33 days 00:00:00
+Avg. Drawdown Duration       33 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                     -24.004767
+Worst Trade [%]                    -24.004767
+Avg. Trade [%]                     -24.004767
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                     -24.004767
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
+
+===== Moon Dev LOCKUP | FIG | IPO 2025-07-31 | day 0 2026-01-27 =====
+Start                     2025-07-31 00:00:00
+End                       2026-02-25 00:00:00
+Duration                    209 days 00:00:00
+Exposure Time [%]                    3.472222
+Equity Final [$]               9528080.028118
+Equity Peak [$]                    10000000.0
+Return [%]                            -4.7192
+Buy & Hold Return [%]              -72.952381
+Return (Ann.) [%]                   -8.111864
+Volatility (Ann.) [%]                 8.11309
+Sharpe Ratio                              0.0
+Sortino Ratio                             0.0
+Calmar Ratio                              0.0
+Max. Drawdown [%]                   -6.132223
+Avg. Drawdown [%]                   -6.132223
+Max. Drawdown Duration       34 days 00:00:00
+Avg. Drawdown Duration       34 days 00:00:00
+# Trades                                    1
+Win Rate [%]                              0.0
+Best Trade [%]                      -4.967587
+Worst Trade [%]                     -4.967587
+Avg. Trade [%]                      -4.967587
+Max. Trade Duration           6 days 00:00:00
+Avg. Trade Duration           6 days 00:00:00
+Profit Factor                             0.0
+Expectancy [%]                      -4.967587
+SQN                                       NaN
+_strategy                 MoonDevLockupSho...
+_equity_curve                             ...
+_trades                        Size  Entry...
+dtype: object
